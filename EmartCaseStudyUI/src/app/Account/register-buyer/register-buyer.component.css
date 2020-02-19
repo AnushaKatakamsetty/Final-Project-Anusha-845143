@@ -1,0 +1,7 @@
+.grad{
+    background-color:rgb(220, 8, 248); 
+    color:black;
+    
+     background-image: linear-gradient(to right,black,brown,orange,yellow,green,blue,indigo);
+  
+ }

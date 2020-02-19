@@ -1,0 +1,44 @@
+<div class="jumborton">
+    <div class="container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>UserName</label>
+            <input type="text" formControlName="UserName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }" />
+            <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+                <div *ngIf="f.UserName.errors.required">User Name is required</div>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                <div *ngIf="f.Password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <br/>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1" (click)="Validate()">Login</button>
+            &nbsp;
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            <br/>
+        </div>
+      
+      </form>
+ 
+
+{{errormessage}}
+<!--<div class= 'link'>
+  <a [routerLink]="'/register-buyer'">Register Buyer</a>  
+    <a [routerLink]="'/register-seller'">Sellerer Buyer</a>  
+   </div>-->
+   <div class="text-center">
+       <button class="btn111" (click)='onClick()'>Register Buyer</button>&nbsp;
+       <button class="btn111"(click)='onClick1()'>Register Seller</button>
+</div>
+</div>
+</div>
+<router-outlet></router-outlet>
+
+
+

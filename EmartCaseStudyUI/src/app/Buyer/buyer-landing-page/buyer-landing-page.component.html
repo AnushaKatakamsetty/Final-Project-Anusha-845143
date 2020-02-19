@@ -1,0 +1,27 @@
+<style>
+    header {
+        background: rgb(2, 7, 14);
+        color:white;
+    }
+    nav{
+        background: rgb(187, 238, 5);
+        color: rgb(2, 7, 14);
+    }
+</style>
+<header>
+    <h1>Buyer
+  
+    </h1>
+  </header>
+  <nav>
+   
+    <a [routerLink]="'buy-product'">Buy Product</a>&nbsp;
+    <a [routerLink]="'buyer-view-profile'">View Profile</a>&nbsp;
+    <a [routerLink]="'purchase-history'">View Purchase History</a> &nbsp;  
+    <a [routerLink]="'bedit-profile'">Edit Profile</a>        
+    
+    <input   type="button" (click)="onclick()"  value="Login"/>    
+  </nav>
+  <router-outlet></router-outlet>
+  
+  
