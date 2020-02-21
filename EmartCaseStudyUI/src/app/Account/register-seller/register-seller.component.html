@@ -6,14 +6,14 @@
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label>ID</label>
-            <input type="text" formControlName="Id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Id.errors }" />
+            <input  type="text" formControlName="Id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Id.errors }" />
             <div *ngIf="submitted && f.Id.errors" class="invalid-feedback">
                 <div *ngIf="f.Id.errors.required">ID is required</div>
             </div>
         </div><br/>
         <div class="form-group">
             <label>UserName</label>
-            <input type="text" formControlName="UserName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }" />
+            <input type="text"  formControlName="UserName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }" />
             <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
                 <div *ngIf="f.UserName.errors.required">User Name is required</div>
             </div>
