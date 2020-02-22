@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Emart.BuyerServices.Models;
+using Emart.BuyerServices.Repositories;
 
 namespace Emart.BuyerServices
 {
@@ -25,6 +27,8 @@ namespace Emart.BuyerServices
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<EmartDBContext>();
+            services.AddTransient<IBuyerRepository,BuyerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

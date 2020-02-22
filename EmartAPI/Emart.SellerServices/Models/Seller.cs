@@ -5,6 +5,11 @@ namespace Emart.SellerServices.Models
 {
     public partial class Seller
     {
+        public Seller()
+        {
+            Items = new HashSet<Items>();
+        }
+
         public int SellerId { get; set; }
         public string SellerUsername { get; set; }
         public string SellerPassword { get; set; }
@@ -15,5 +20,7 @@ namespace Emart.SellerServices.Models
         public string Website { get; set; }
         public string SellerEmailid { get; set; }
         public int SellerContactnumber { get; set; }
+
+        public virtual ICollection<Items> Items { get; set; }
     }
 }

@@ -123,10 +123,6 @@ namespace Emart.SellerServices.Models
 
             modelBuilder.Entity<Items>(entity =>
             {
-                entity.HasIndex(e => e.ItemName)
-                    .HasName("UQ__Items__ACA52A972DBEA2B1")
-                    .IsUnique();
-
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .ValueGeneratedNever();
@@ -150,10 +146,11 @@ namespace Emart.SellerServices.Models
                     .HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Remarks)
-                    .IsRequired()
                     .HasColumnName("remarks")
                     .HasMaxLength(300)
                     .IsUnicode(false);
+
+                entity.Property(e => e.SellerId).HasColumnName("seller_id");
 
                 entity.Property(e => e.StockNumber).HasColumnName("stock_number");
 
@@ -162,12 +159,17 @@ namespace Emart.SellerServices.Models
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK__Items__category___1DE57479");
+                    .HasConstraintName("FK__Items__category___37A5467C");
+
+                entity.HasOne(d => d.Seller)
+                    .WithMany(p => p.Items)
+                    .HasForeignKey(d => d.SellerId)
+                    .HasConstraintName("FK__Items__seller_id__36B12243");
 
                 entity.HasOne(d => d.Subcategory)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.SubcategoryId)
-                    .HasConstraintName("FK__Items__subcatego__1ED998B2");
+                    .HasConstraintName("FK__Items__subcatego__38996AB5");
             });
 
             modelBuilder.Entity<Seller>(entity =>

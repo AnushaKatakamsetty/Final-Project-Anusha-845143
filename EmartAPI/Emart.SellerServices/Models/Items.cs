@@ -6,6 +6,7 @@ namespace Emart.SellerServices.Models
     public partial class Items
     {
         public int Id { get; set; }
+        public int? SellerId { get; set; }
         public int? CategoryId { get; set; }
         public int? SubcategoryId { get; set; }
         public decimal Price { get; set; }
@@ -15,6 +16,7 @@ namespace Emart.SellerServices.Models
         public string Remarks { get; set; }
 
         public virtual Category Category { get; set; }
+        public virtual Seller Seller { get; set; }
         public virtual SubCategory Subcategory { get; set; }
     }
 }
