@@ -30,6 +30,12 @@ namespace Emart.SellerServices
             services.AddDbContext<EmartDBContext>();
             services.AddTransient<SSIItemRepository, SSItemRepository>();
            services.AddTransient<ISellerRepository,SellerRepository>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +49,7 @@ namespace Emart.SellerServices
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

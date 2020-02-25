@@ -29,6 +29,15 @@ namespace Emart.BuyerServices
             services.AddControllers();
             services.AddDbContext<EmartDBContext>();
             services.AddTransient<IBuyerRepository,BuyerRepository>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader());
+            });
+
+          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +51,7 @@ namespace Emart.BuyerServices
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

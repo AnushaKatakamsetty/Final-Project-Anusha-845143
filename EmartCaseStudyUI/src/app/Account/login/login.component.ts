@@ -88,11 +88,11 @@ get f(){return this.loginForm.controls}
   {
     
   }
-  onClick()
+  onClickb()
   {
     this.route.navigateByUrl('register-buyer');
   }
-  onClick1()
+  onClicks()
   {
     this.route.navigateByUrl('register-seller');
   }

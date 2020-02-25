@@ -29,7 +29,13 @@ namespace Emart.AccountServices
             services.AddControllers();
             services.AddDbContext<EmartDBContext>();
             services.AddTransient<IAccountRepository,AccountRepository>();
-        
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader());
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +49,7 @@ namespace Emart.AccountServices
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {
