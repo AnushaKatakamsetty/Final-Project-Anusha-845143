@@ -43,7 +43,7 @@
         <br/>
         <div class="form-group">
             <label>Create DateTime</label>
-            <input type="datetime" formControlName="CreateDateTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CreateDateTime.errors }" />
+            <input type="date" formControlName="CreateDateTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CreateDateTime.errors }" />
             <div *ngIf="submitted && f.CreateDateTime.errors" class="invalid-feedback">
                 <div *ngIf="f.CreateDateTime.errors.required">Create dat time is required</div>
             </div>

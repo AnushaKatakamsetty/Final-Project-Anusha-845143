@@ -29,6 +29,7 @@ import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './Account/account/account.component';
 import { EditProfileComponent } from './Seller/edit-profile/edit-profile.component';
 import { BEditProfileComponent } from './Buyer/bedit-profile/bedit-profile.component';
+import {HttpClientModule} from  '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { BEditProfileComponent } from './Buyer/bedit-profile/bedit-profile.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import{FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { Buyer } from 'src/app/Models/buyer';
+
 import { Seller } from 'src/app/Models/seller';
+import { AccountService } from 'src/app/Services/account.service';
 @Component({
   selector: 'app-register-seller',
   templateUrl: './register-seller.component.html',
@@ -11,11 +12,11 @@ import { Seller } from 'src/app/Models/seller';
 export class RegisterSellerComponent implements OnInit {
 registerForm:FormGroup;
   submitted=false;
- buyerregister:Buyer;
+ 
   errormessage:string;
   sellerregister:Seller;
-    constructor(private formbuilder:FormBuilder,private route:Router) { 
-      this.buyerregister=new Buyer();
+    constructor(private formbuilder:FormBuilder,private route:Router,private service:AccountService) { 
+     
       this.sellerregister=new Seller();
     }
   
@@ -38,6 +39,24 @@ registerForm:FormGroup;
     this.submitted=true;
     if(this.registerForm.valid)
     {
+      this.sellerregister=new Seller();
+      this.sellerregister.seller_id=Number(this.registerForm.value["Id"]);
+      this.sellerregister.seller_username=(this.registerForm.value["UserName"]);
+      this.sellerregister.seller_password=(this.registerForm.value["Password"]);
+      this.sellerregister.company_name=(this.registerForm.value["CompanyName"]);
+      this.sellerregister.GSTIN=Number(this.registerForm.value["GSTIN"]);
+      this.sellerregister.brief_about_company=(this.registerForm.value["Email_Id"]);
+      this.sellerregister.postal_address=(this.registerForm.value["Email_Id"]);
+      this.sellerregister.seller_emailid=(this.registerForm.value["Email_Id"]);
+      this.sellerregister.seller_contactnumber=Number(this.registerForm.value["Mobile_Number"]);
+      
+      console.log(this.sellerregister);
+      this.service.RegisterSeller(this.sellerregister).subscribe(res=>{
+        console.log('seller Registration Success')
+          },err=>
+        {
+      console.log(err);
+      })
     }
     else
     {

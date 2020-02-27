@@ -26,15 +26,17 @@ namespace Emart.AccountServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.AddDbContext<EmartDBContext>();
-            services.AddTransient<IAccountRepository,AccountRepository>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
                  .AllowAnyMethod()
                  .AllowAnyHeader());
             });
+            services.AddControllers();
+           
+           
 
         }
 
@@ -49,12 +51,13 @@ namespace Emart.AccountServices
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors("AllowOrigin");
+            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            app.UseCors("AllowOrigin");
         }
     }
 }

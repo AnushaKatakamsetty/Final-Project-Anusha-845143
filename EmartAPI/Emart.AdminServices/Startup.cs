@@ -26,7 +26,7 @@ namespace Emart.AdminServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+           
             services.AddDbContext<EmartDBContext>();
             services.AddTransient<IAdminRepository,AdminRepository>();
             
@@ -36,7 +36,7 @@ namespace Emart.AdminServices
                  .AllowAnyMethod()
                  .AllowAnyHeader());
             });
-
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,12 +50,13 @@ namespace Emart.AdminServices
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors("AllowOrigin");
+            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            app.UseCors("AllowOrigin");
         }
     }
 }

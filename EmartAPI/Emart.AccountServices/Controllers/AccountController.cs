@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Emart.AccountServices.Repositories;
 using Emart.AccountServices.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace Emart.AccountServices.Controllers
 {
@@ -13,6 +14,8 @@ namespace Emart.AccountServices.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+       /// [EnableCors(origins: "http://example.com", headers: "content-type", methods: "")]
+        
         private readonly IAccountRepository _repo;
         public AccountController(IAccountRepository repo)
         {
@@ -50,13 +53,24 @@ namespace Emart.AccountServices.Controllers
         [Route("Get")]
         public IActionResult Get()
         {
-            return Ok(_repo.Get());
+            try { return Ok(_repo.Get()); }
+            catch(Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
         }
         [HttpGet]
         [Route("GetS")]
         public IActionResult GetS()
         {
-            return Ok(_repo.GetS());
+            try
+            {
+                return Ok(_repo.GetS());
+            }
+            catch(Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
         }
         [HttpPost]
         [Route("RegisterBuyer")]
@@ -69,7 +83,7 @@ namespace Emart.AccountServices.Controllers
             }
             catch(Exception ex)
             {
-                return NotFound(ex.Message);
+                return NotFound(ex.InnerException.Message);
             }
         }
         [HttpPost]

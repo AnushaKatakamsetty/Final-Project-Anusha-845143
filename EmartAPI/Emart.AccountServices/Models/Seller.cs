@@ -5,7 +5,7 @@ namespace Emart.AccountServices.Models
 {
     public partial class Seller
     {
-        public int SellerId { get; set; }
+        public int SellerId { get; set; } 
         public string SellerUsername { get; set; }
         public string SellerPassword { get; set; }
         public string CompanyName { get; set; }

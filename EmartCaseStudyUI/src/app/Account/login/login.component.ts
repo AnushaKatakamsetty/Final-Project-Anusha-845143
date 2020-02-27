@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Buyer } from 'src/app/Models/buyer';
 import { Seller } from 'src/app/Models/seller';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/Services/account.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,9 @@ submitted=false;
 buyerlogin:Buyer;
 errormessage:string;
 sellerlogin:Seller;
-  constructor(private formbuilder:FormBuilder,private route:Router) { 
+by:Buyer;
+sl:Seller;
+  constructor(private formbuilder:FormBuilder,private route:Router,private service:AccountService) { 
     this.buyerlogin=new Buyer();
     this.sellerlogin=new Seller();
   }
@@ -95,6 +98,15 @@ get f(){return this.loginForm.controls}
   onClicks()
   {
     this.route.navigateByUrl('register-seller');
+  }
+  LoginBuyer(usname:string,paswd:string)
+  {
+let un=this.loginForm.value['UserName'];
+let ps=this.loginForm.value['Password'];
+this.service.LoginBuyer(un,ps).subscribe(res=>{this.by=res;
+  console.log("login success!");
+ // this.route.navigateByUrl('/buyer-landing-page');
+  ;})
   }
 }
 
