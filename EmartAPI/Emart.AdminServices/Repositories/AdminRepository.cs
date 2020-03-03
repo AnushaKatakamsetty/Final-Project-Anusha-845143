@@ -47,6 +47,10 @@ namespace Emart.AdminServices.Repositories
         {
             return _context.Category.ToList();
         }
+        public List<SubCategory> ViewSubcategory()
+        {
+            return _context.SubCategory.ToList();
+        }
     }
 }
 

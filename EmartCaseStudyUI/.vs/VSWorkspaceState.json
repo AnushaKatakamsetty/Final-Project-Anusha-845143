@@ -4,9 +4,13 @@
     "\\e2e",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\Account",
+    "\\src\\app\\Account\\login",
+    "\\src\\app\\Account\\register-buyer",
+    "\\src\\app\\Admin\\add-category",
     "\\src\\app\\Buyer",
     "\\src\\app\\Models"
   ],
-  "SelectedNode": "\\src\\app\\Models\\item.ts",
+  "SelectedNode": "\\src\\app",
   "PreviewInSolutionExplorer": false
 }

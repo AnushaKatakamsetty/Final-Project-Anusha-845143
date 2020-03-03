@@ -4,9 +4,9 @@
         <form [formGroup]="addsubcatform" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label>SUbCategoryName</label>
-              <input type="text" formControlName="CategoryName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CategoryName.errors }" />
-              <div *ngIf="submitted && f.CategoryName.errors" class="invalid-feedback">
-                  <div *ngIf="f.CategoryName.errors.required">category Name is required</div>
+              <input type="text" formControlName="SubcategoryName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SubcategoryName.errors }" />
+              <div *ngIf="submitted && f.SubcategoryName.errors" class="invalid-feedback">
+                  <div *ngIf="f.SubctegoryName.errors.required">category Name is required</div>
               </div>
             </div>
             <div class="form-group">

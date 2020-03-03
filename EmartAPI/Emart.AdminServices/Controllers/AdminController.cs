@@ -88,5 +88,18 @@ namespace Emart.AdminServices.Controllers
                 return NotFound(ex.InnerException.Message);
             }
         }
+        [HttpGet]
+        [Route("ViewSubcategory")]
+        public IActionResult ViewSubcategory()
+        {
+            try
+            {
+                return Ok(_repo.ViewSubcategory());
+            }
+            catch(Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
     }
 }

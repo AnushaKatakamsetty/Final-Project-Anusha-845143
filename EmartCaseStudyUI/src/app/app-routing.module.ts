@@ -26,6 +26,8 @@ import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './Account/account/account.component';
 import { BEditProfileComponent } from './Buyer/bedit-profile/bedit-profile.component';
 import { EditProfileComponent } from './Seller/edit-profile/edit-profile.component';
+import { ViewSubCategoryComponent } from './Admin/view-sub-category/view-sub-category.component';
+import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 
 const routes: Routes = [{path:'home',component:HomeComponent,
 children:[{path:'login',component:LoginComponent}]},
@@ -34,7 +36,9 @@ children:[{path:'login',component:LoginComponent}]},
 
   {path:'admin-landing-page',component:AdminLandingPageComponent,children:[
     {path:'add-category',component:AddCategoryComponent},
+    {path:'view-category',component:ViewCategoryComponent},
     {path:'add-sub-category',component:AddSubCategoryComponent},
+    {path:'view-subcategory',component:ViewSubCategoryComponent},
     {path:'block-unblock-buyer',component:BlockUnblockBuyerComponent},
     {path:'block-unblock-seller',component:BlockUnblockSellerComponent},
     {path:'daily-reports',component:DailyReportsComponent}

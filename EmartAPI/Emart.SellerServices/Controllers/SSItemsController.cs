@@ -75,13 +75,13 @@ namespace Emart.SellerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("ViewItems/{sellerid}")]
-        public IActionResult ViewItems(int sellerid)
+        [Route("ViewItems")]
+        public IActionResult ViewItems()
         {
             try
             {
                
-                return Ok(_rep.ViewItems(sellerid));
+                return Ok(_rep.ViewItems());
             }
             catch (Exception ex)
             {

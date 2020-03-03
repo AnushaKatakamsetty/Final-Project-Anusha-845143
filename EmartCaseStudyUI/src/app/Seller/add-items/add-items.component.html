@@ -1,3 +1,79 @@
-<p>add-items works!</p>
+<div class="register" align="center">
+    <h3 align ="center">ADD ITEM</h3>
+        <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" align="center">
+            <table>
+                <tr>
+                    <td><label>Item Id</label></td>
+                    <td><input type="text" formControlName="Id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Id.errors }" />
+                    <div *ngIf="submitted && f.Id.errors" class="invalid-feedback">
+                        <div *ngIf="f.Id.errors.required">Id is required</div>
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label>Seller Id</label></td>
+                    <td><input type="text" formControlName="SellerId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SellerId.errors }" />
+                    <div *ngIf="submitted && f.SellerId.errors" class="invalid-feedback">
+                        <div *ngIf="f.SellerId.errors.required">Id is required</div>
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label>Category ID</label></td>
+                    <td><input type="text" formControlName="CategoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CategoryId.errors }" />
+                    <div *ngIf="submitted && f.CategoryId.errors" class="invalid-feedback">
+                        <div *ngIf="f.CategoryId.errors.required">Category id is required</div>
+                        
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label>SubCategory ID</label></td>
+                    <td><input type="text" formControlName="SubcategoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SubcategoryId.errors }" />
+                    <div *ngIf="submitted && f.SubcategoryId.errors" class="invalid-feedback">
+                        <div *ngIf="f.SubcategoryId.errors.required"> subcategory id is required</div>
+                    
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label>Price</label></td>
+                    <td><input type="number" formControlName="Price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Price.errors }" />
+                    <div *ngIf="submitted && f.Price.errors" class="invalid-feedback">
+                        <div *ngIf="f.Price.errors.required">enter Price</div>
+                    </div></td>
+                </tr>
+                    <tr>
+                        <td><label>Item Name</label></td>
+                <td><input type="text" formControlName="ItemName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ItemName.errors }" />
+                <div *ngIf="submitted && f.ItemName.errors" class="invalid-feedback">
+                    <div *ngIf="f.ItemName.errors.required"> enter item name</div>
+                </div></td>
+            </tr>
+            <tr>
+                <td><label>Descrption</label></td>
+                <td><textarea type="text" formControlName="Itemdescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Itemdescription.errors }"></textarea>
+                <div *ngIf="submitted && f.Itemdescription.errors" class="invalid-feedback">
+                    <div *ngIf="f.Itemdescription.errors.required">enter Itemdescription</div>
+                </div></td>
+            </tr>
+
+            <tr>
+                <td><label>Stock No</label></td>
+                <td><input type="number" formControlName="StockNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StockNumber.errors }" />
+                <div *ngIf="submitted && f.StockNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.StockNumber.errors.required">please enter stock </div>
+                </div></td>
+            </tr>
+            <tr>
+                <td><label>Remarks</label></td>
+                <td><input type="text" formControlName="Remarks" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Remarks.errors }" />
+                <div *ngIf="submitted && f.Remarks.errors" class="invalid-feedback">
+                    <div *ngIf="f.Remarks.errors.required">give remark</div>
+                </div></td>
+            </tr>
+                <div class="text-center">
+                <button class="btn btn-primary mr-1" type="submit" >Add</button>
+                <button class="btn btn-primary mr-1" type="reset" (click)='onReset()'>Reset</button>
+            </div>
+        </table>
+        </form>
+</div>
 <router-outlet></router-outlet>
 

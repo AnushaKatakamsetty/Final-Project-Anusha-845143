@@ -23,6 +23,22 @@ export class AdminService {
   {
     return this.http.post<any>(this.url+'AddSubCategory',item)
   }
-  
+  public DeleteCategory(Cid:string):Observable<any>
+  {
+    return this.http.delete<any>(this.url+'DeleteCategory/'+Cid,Requestheaders);
+  }
+  public DeleteSubcategory(SCid:string):Observable<any>
+  {
+    return this.http.delete<any>(this.url+'DeleteSubcategory/'+SCid,Requestheaders);
+  }
+  public ViewCategory():Observable<any>
+  {
+    return this.http.get<any>(this.url+'ViewCategory',Requestheaders);
+  }
+  public ViewSubcategory():Observable<any>
+  {
+    return this.http.get<any>(this.url+'Viewsubcategory',Requestheaders);
+  }
+
 }
 

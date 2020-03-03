@@ -9,7 +9,7 @@ namespace Emart.SellerServices.Repositories
     {
         void AddItem(Items it);
         
-        List<Items> ViewItems(int sellerid);
+        List<Items> ViewItems();
         void DeleteItem(int id);
         void UpdateItem(Items obj);
         Items GetItems(int itemid);

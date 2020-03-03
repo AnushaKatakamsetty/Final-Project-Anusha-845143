@@ -1,2 +1,36 @@
-<p>view-items works!</p>
+<div class="card m-1" style="width:100%;align-items: center;">
+  <div class="container">
+    
+      <table class="table table-bordered">
+          <tr>
+              <th>Item Id</th>
+               <th>Category Id</th>
+              <th>SubCatergory Id</th>
+              <th>Price</th> 
+              <th>ItemName</th>
+              <th>Description</th>
+              <th>Stockno</th>
+              <th>Remarks</th>
+              <th>SellerId</th>
+              <th>Edit</th>
+              <th>Delete</th>
+          </tr>
+          <tr *ngFor="let item of list">
+             <td>{{item.id}}</td>
+              <td>{{item.categoryId}}</td>
+             <td>{{item.subcategoryId}}</td>
+             <td>{{item.price}}</td> 
+             <td>{{item.itemName}}</td>
+             <td>{{item.itemdescription}}</td>
+             <td>{{item.stockNumber}}</td>
+             <td>{{item.remarks}}</td>
+             <td>{{item.sellerId}}</td>
+             <td><button class="btn btn-primary mr-1" type="button" (click)="Update()">Edit</button></td>
+             <td><button class="btn btn-primary mr-1" type="button" (click)="Delete(item.id)">Delete</button></td>
+          </tr>
+      </table>
+    
+  </div>
+  </div>
+
 <router-outlet></router-outlet>

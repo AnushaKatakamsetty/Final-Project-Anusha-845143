@@ -18,8 +18,8 @@ submitted=false;
 
   ngOnInit() {
     this.addsubcatform=this.ASCBuilder.group(
-      {CategoryId:["",Validators.required],
-        CategoryName:['',Validators.required],
+      {
+        SubcategoryName:['',Validators.required],CategoryId:["",Validators.required],
         BriefDetails:['',Validators.required], 
         Gstpercentage:['',Validators.required]   
     })

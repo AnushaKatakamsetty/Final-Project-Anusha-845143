@@ -35,6 +35,7 @@ onSubmit()
   this.submitted=true;
   if(this.loginForm.valid)
   {
+    
  /*if(this.buyerlogin.buyer_username=="buyer"&&this.buyerlogin.buyer_password=="buyer")
  if(this.buyerlogin.buyer_username=="buyer"&&this.buyerlogin.buyer_password=="buyer")
   {
@@ -105,7 +106,16 @@ let un=this.loginForm.value['UserName'];
 let ps=this.loginForm.value['Password'];
 this.service.LoginBuyer(un,ps).subscribe(res=>{this.by=res;
   console.log("login success!");
- // this.route.navigateByUrl('/buyer-landing-page');
+  this.route.navigateByUrl('/buyer-landing-page');
+  ;})
+  }
+  LoginSeller(usname:string,paswd:string)
+  {
+let un1=this.loginForm.value['UserName'];
+let ps1=this.loginForm.value['Password'];
+this.service.LoginSeller(un1,ps1).subscribe(res=>{this.sl=res;
+  console.log("login success!");
+  this.route.navigateByUrl('/seller-landing-page');
   ;})
   }
 }
