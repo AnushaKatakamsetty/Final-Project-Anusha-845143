@@ -15,33 +15,44 @@ namespace Emart.AccountServices.Repositories
         {
             _context = context;
         }
-        public bool LoginBuyer(string username, string password)
+        /* public bool LoginBuyer(string username, string password)
+         {
+             Buyer buy = _context.Buyer.SingleOrDefault(i => i.BuyerUsername == username && i.BuyerPassword == password);
+           if(buy.BuyerUsername==username&&buy.BuyerPassword==password)
+             {
+                 Console.WriteLine("Login successfull");
+                 return true;
+             }
+             else { return false; }
+
+         }
+
+         public bool LoginSeller(string username, string password)
+         {
+             Seller sell = _context.Seller.SingleOrDefault(i => i.SellerUsername == username && i.SellerPassword == password);
+             if (sell.SellerUsername == username && sell.SellerPassword == password)
+             {
+                 Console.WriteLine("Login successfull");
+                 return true;
+             }
+             else
+             {
+                 Console.WriteLine("Login failed"); 
+                 return false;
+             }
+         }
+         */
+        public Buyer LoginBuyer(string username, string password)
         {
-            Buyer buy = _context.Buyer.SingleOrDefault(i => i.BuyerUsername == username && i.BuyerPassword == password);
-          if(buy.BuyerUsername==username&&buy.BuyerPassword==password)
-            {
-                Console.WriteLine("Login successfull");
-                return true;
-            }
-            else { return false; }
-         
+            return _context.Buyer.SingleOrDefault(i => i.BuyerUsername == username && i.BuyerPassword == password);
         }
 
-        public bool LoginSeller(string username, string password)
+        public Seller LoginSeller(string username, string password)
         {
-            Seller sell = _context.Seller.SingleOrDefault(i => i.SellerUsername == username && i.SellerPassword == password);
-            if (sell.SellerUsername == username && sell.SellerPassword == password)
-            {
-                Console.WriteLine("Login successfull");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Login failed"); 
-                return false;
-            }
+            Seller s = new Seller();
+            s= _context.Seller.SingleOrDefault(i => i.SellerUsername == username && i.SellerPassword == password);
+            return s;
         }
-
         public void RegisterBuyer(Buyer b)
         {
             _context.Buyer.Add(b);

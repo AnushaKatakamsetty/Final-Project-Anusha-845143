@@ -7,7 +7,10 @@ namespace Emart.AccountServices.Repositories
 {
     public class Token
     {
+        public  string token { get; set; }
+       public string message { get; set; }
+
         public int SellerId { get; set; }
-        public int BuyerId { get; set; }
+        public int Buyerid { get; set; }
     }
 }

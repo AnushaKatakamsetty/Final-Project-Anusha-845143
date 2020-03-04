@@ -12,9 +12,11 @@ namespace Emart.BuyerServices.Repositories
         //void BuyItems(Transaction t);
         void EditProfile(Buyer b);
         Buyer GetProfile(int bid);
-        // List<Transaction> TransactionHistrory(int bid); 
+         List<PurchaseHistory> PurchaseHistrory(int bid); 
         List<Category> GetCategories();
         List<SubCategory> GetSubCategories(int categoryid);
+        void BuyItem(PurchaseHistory obj);
+
 
     }
 }

@@ -7,6 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Emart.AccountServices.Repositories;
 using Emart.AccountServices.Models;
 using Microsoft.AspNetCore.Cors;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace Emart.AccountServices.Controllers
 {
@@ -17,39 +22,61 @@ namespace Emart.AccountServices.Controllers
        /// [EnableCors(origins: "http://example.com", headers: "content-type", methods: "")]
         
         private readonly IAccountRepository _repo;
-        public AccountController(IAccountRepository repo)
+        private readonly   IConfiguration configuration;
+
+        public AccountController(IAccountRepository repo,IConfiguration configuration)
         {
             _repo = repo;
+            this.configuration = configuration;
         }
         [HttpGet]
         [Route("LoginBuyer/{username}/{password}")]
         public IActionResult LoginBuyer(string username, string password)
         {
+            Token token = null;
             try
             {
-                
-                return Ok(_repo.LoginBuyer(username, password));
+                Buyer buyer = _repo.LoginBuyer(username, password);
+                if (buyer != null)
+                {
+                    token = new Token() { Buyerid= buyer.BuyerId,token = GenerateJwtToken(username), message = "success" };
+                }
+                else
+                {
+                    token = new Token() { token = null, message = "unsuccess" };
+                }
+                return Ok(token);
             }
-            catch(Exception ex)
+            catch (Exception e)
             {
-                return NotFound(ex.Message);
+                return Ok(e.InnerException.Message);
             }
         }
         [HttpGet]
-        [Route("LoginSeller/{username}/{password}")]
-        public IActionResult LoginSeller(string username, string password)
+        [Route("LoginSeller/{uname}/{pwd}")]
+        public IActionResult SLogin(string uname, string pwd)
         {
+            Token token = null;
             try
             {
-               
-                return Ok(_repo.LoginSeller(username, password));
+                Seller seller = _repo.LoginSeller(uname, pwd);
+                if (seller!= null)
+                {
+                    token = new Token() { SellerId= seller.SellerId, token = GenerateJwtToken(uname), message = "success" };
+                }
+                else
+                {
+                    token = new Token() { token = null, message = "unsuccess" };
+                }
+                return Ok(token);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return NotFound(ex.Message);
+                return Ok(e.InnerException.Message);
             }
         }
-        [HttpGet]
+        
+    [HttpGet]
         [Route("Get")]
         public IActionResult Get()
         {
@@ -100,5 +127,33 @@ namespace Emart.AccountServices.Controllers
                 return NotFound(ex.InnerException.Message);
             }
         }
+        private string GenerateJwtToken(string uname)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, uname),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier, uname),
+                new Claim(ClaimTypes.Role,uname)
+            };
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtKey"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            // recommended is 5 min
+            var expires = DateTime.Now.AddDays(Convert.ToDouble(configuration["JwtExpireDays"]));
+            var token = new JwtSecurityToken(
+                configuration["JwtIssuer"],
+                configuration["JwtIssuer"],
+                claims,
+                expires: expires,
+                signingCredentials: credentials
+            );
+
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+
+
+
+          }
     }
 }
+

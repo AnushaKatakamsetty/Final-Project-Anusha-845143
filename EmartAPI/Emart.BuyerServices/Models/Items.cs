@@ -5,6 +5,11 @@ namespace Emart.BuyerServices.Models
 {
     public partial class Items
     {
+        public Items()
+        {
+            PurchaseHistory = new HashSet<PurchaseHistory>();
+        }
+
         public int Id { get; set; }
         public int? SellerId { get; set; }
         public int? CategoryId { get; set; }
@@ -18,5 +23,6 @@ namespace Emart.BuyerServices.Models
         public virtual Category Category { get; set; }
         public virtual Seller Seller { get; set; }
         public virtual SubCategory Subcategory { get; set; }
+        public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
     }
 }

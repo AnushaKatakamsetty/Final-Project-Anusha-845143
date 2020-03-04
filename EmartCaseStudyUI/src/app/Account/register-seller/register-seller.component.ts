@@ -40,15 +40,15 @@ registerForm:FormGroup;
     if(this.registerForm.valid)
     {
       this.sellerregister=new Seller();
-      this.sellerregister.seller_id=Number(this.registerForm.value["Id"]);
-      this.sellerregister.seller_username=(this.registerForm.value["UserName"]);
-      this.sellerregister.seller_password=(this.registerForm.value["Password"]);
-      this.sellerregister.company_name=(this.registerForm.value["CompanyName"]);
-      this.sellerregister.GSTIN=Number(this.registerForm.value["GSTIN"]);
-      this.sellerregister.brief_about_company=(this.registerForm.value["Email_Id"]);
-      this.sellerregister.postal_address=(this.registerForm.value["Email_Id"]);
-      this.sellerregister.seller_emailid=(this.registerForm.value["Email_Id"]);
-      this.sellerregister.seller_contactnumber=Number(this.registerForm.value["Mobile_Number"]);
+      this.sellerregister.SellerId=Number(this.registerForm.value["Id"]);
+      this.sellerregister.SellerUsername=(this.registerForm.value["UserName"]);
+      this.sellerregister.SellerPassword=(this.registerForm.value["Password"]);
+      this.sellerregister.CompanyName=(this.registerForm.value["CompanyName"]);
+      this.sellerregister.Gstin=Number(this.registerForm.value["GSTIN"]);
+      this.sellerregister.BriefAboutCompany=(this.registerForm.value["Email_Id"]);
+      this.sellerregister.PostalAddress=(this.registerForm.value["Email_Id"]);
+      this.sellerregister.SellerEmailid=(this.registerForm.value["Email_Id"]);
+      this.sellerregister.SellerContactnumber=Number(this.registerForm.value["Mobile_Number"]);
       
       console.log(this.sellerregister);
       this.service.RegisterSeller(this.sellerregister).subscribe(res=>{

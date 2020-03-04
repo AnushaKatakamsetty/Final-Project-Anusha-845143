@@ -26,7 +26,7 @@ namespace Emart.BuyerServices.Controllers
             {
                 return Ok(_repo.SearchItems(name, price));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound(ex.InnerException.Message);
             }
@@ -42,7 +42,7 @@ namespace Emart.BuyerServices.Controllers
                 return Ok();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound(ex.InnerException.Message);
             }
@@ -55,7 +55,7 @@ namespace Emart.BuyerServices.Controllers
             {
                 return Ok(_repo.GetProfile(bid));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound(ex.InnerException.Message);
             }
@@ -70,7 +70,7 @@ namespace Emart.BuyerServices.Controllers
                 return Ok(_repo.GetCategories());
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound(ex.InnerException.Message);
             }
@@ -82,6 +82,20 @@ namespace Emart.BuyerServices.Controllers
             try
             {
                 return Ok(_repo.GetSubCategories(categoryid));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpPost]
+        [Route("BuyProduct/{item}")]
+        public IActionResult BuyItem(PurchaseHistory obj)
+        {
+            try
+            {
+                _repo.BuyItem(obj);
+                return Ok();
             }
             catch(Exception ex)
             {

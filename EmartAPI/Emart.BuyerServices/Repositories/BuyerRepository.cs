@@ -13,6 +13,13 @@ namespace Emart.BuyerServices.Repositories
         {
             _context = context;
         }
+
+        public void BuyItem( PurchaseHistory obj)
+        {
+            _context.PurchaseHistory.Add(obj);
+            _context.SaveChanges();
+        }
+
         public void EditProfile(Buyer b)
         {
             _context.Buyer.Update(b);
@@ -32,6 +39,12 @@ namespace Emart.BuyerServices.Repositories
         public List<SubCategory> GetSubCategories(int categoryid)
         {
             return _context.SubCategory.Where(i => i.CategoryId == categoryid).ToList();
+        }
+
+        public List<PurchaseHistory> PurchaseHistrory(int bid)
+        {
+
+            return _context.PurchaseHistory.Where(i => i.BuyerId == bid).ToList(); 
         }
 
         public List<Items> SearchItems(string name, decimal price)
