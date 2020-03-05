@@ -1,3 +1,5 @@
+
+  <router-outlet></router-outlet>
 <!DOCTYPE html >
 <html >
 <head>
@@ -8,15 +10,16 @@
 </script>-->
 </head>
 <body >
+ 
    <h1 class="grad">
      <img   class="img" src="assets/images/emart.png">
     </h1>
-    
-  <div class="nav" height='750px'>
+  <div class="bg">  
+    <div class="nav" height='750px'>
     <a [routerLink]="'index'">Home</a>  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-    <a [routerLink]="'login'">Login/Sign Up</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a [routerLink]="'/login'">Login/Sign Up</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
    <!-- <a>
       <select  id="selectbox" name="" onchange="javascript:location=value;">
@@ -42,10 +45,12 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input class="Search" type="text" placeholder="Search..">
+    </div>
+    <br/>
+  
+
   </div>
-  <br/>
   
 </body>
   </html>
-  <router-outlet></router-outlet>
   

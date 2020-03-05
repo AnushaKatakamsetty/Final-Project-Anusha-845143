@@ -70,6 +70,6 @@ import { ViewSubCategoryComponent } from './Admin/view-sub-category/view-sub-cat
     ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }

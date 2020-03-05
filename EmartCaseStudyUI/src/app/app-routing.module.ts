@@ -29,8 +29,8 @@ import { EditProfileComponent } from './Seller/edit-profile/edit-profile.compone
 import { ViewSubCategoryComponent } from './Admin/view-sub-category/view-sub-category.component';
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 
-const routes: Routes = [{path:'home',component:HomeComponent,
-children:[{path:'login',component:LoginComponent}]},
+const routes: Routes = [{path:'home',component:HomeComponent},
+{path:'login',component:LoginComponent},
  {path:'account',component:AccountComponent}, {path:'register-buyer',component:RegisterBuyerComponent},
   {path:'register-seller',component:RegisterSellerComponent},
 

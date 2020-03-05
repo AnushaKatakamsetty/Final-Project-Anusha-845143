@@ -12,13 +12,13 @@ export class AccountService {
 
   constructor(private http:HttpClient) {
    }
-   public LoginBuyer(busername:string,bpassword:string):Observable<Buyer>
+   public LoginBuyer(BuyerUsername:string,BuyerPassword:string):Observable<any>
    {
-     return this.http.get<Buyer>(this.url+'LoginBuyer/'+busername+'/'+bpassword,Requestheaders)
+     return this.http.get<any>(this.url+'LoginBuyer/'+BuyerUsername+'/'+BuyerPassword,Requestheaders)
    }
-   public LoginSeller(susername:string,spassword:string):Observable<Seller>
+   public LoginSeller(SellerUsername:string,SellerPassword:string):Observable<any>
    {
-     return this.http.get<Seller>(this.url+'LoginSeller/'+susername+'/'+spassword,Requestheaders) 
+     return this.http.get<any>(this.url+'LoginSeller/'+SellerUsername+'/'+SellerPassword,Requestheaders) 
    }
    public RegisterBuyer(buyer:Buyer):Observable<Buyer>
    {

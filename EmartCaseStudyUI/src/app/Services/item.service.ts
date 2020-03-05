@@ -17,9 +17,9 @@ public AddItem(item:Item):Observable<any>
 {
   return this.http.post<any>(this.url+'AddItem',item)
 }
-public ViewItems():Observable<any>
+public ViewItems(sellerid:number):Observable<any>
 {
-  return this.http.get(this.url+'ViewItems',Requestheaders);
+  return this.http.get<any>(this.url+'ViewItems/'+JSON.stringify(sellerid),Requestheaders);
 }
 public UpdateItem(items:Item):Observable<any>
 {

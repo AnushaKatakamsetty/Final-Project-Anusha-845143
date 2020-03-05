@@ -39,9 +39,9 @@ namespace Emart.SellerServices.Repositories
             _contx.SaveChanges();
         }
 
-        public List<Items> ViewItems()
+        public List<Items> ViewItems(int sellerid)
         {
-            List<Items> it = _contx.Items.ToList();
+            List<Items> it = _contx.Items.Where(i=>i.SellerId==sellerid).ToList();
             return it;
         }
     }

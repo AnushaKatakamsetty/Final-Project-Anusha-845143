@@ -15,8 +15,11 @@ export class ViewItemsComponent implements OnInit {
   list:Item[];
   item:Item;
   seller:Seller
+  //sellId:number;
   constructor(private service:ItemService,private formBuilder:FormBuilder) { 
-    this.service.ViewItems().subscribe(res=>{
+  let sell=localStorage.getItem('seller');
+  //console.log('sellerid'+sell);
+    this.service.ViewItems(parseInt(sell)).subscribe(res=>{
       this.list=res;
       console.log(this.list);
     },err=>{
