@@ -68,6 +68,18 @@
                     <div *ngIf="f.Remarks.errors.required">give remark</div>
                 </div></td>
             </tr>
+            <tr>
+                <td><label>Image</label></td>
+                <td><input type="file" formControlName="Image" (change)="fileEvent($event)">
+                <br><br>
+                <div *ngFor="let items of list">
+                    <div>
+                        <img src='assets/images/{{items.Image}}' style="height: 150px; width:150px;"><br>
+                        Name:{{items.itemName}}
+                    </div>
+                </div> 
+            </td>
+            </tr>
                 <div class="text-center">
                 <button class="btn btn-primary mr-1" type="submit" >Add</button>
                 <button class="btn btn-primary mr-1" type="reset" (click)='onReset()'>Reset</button>

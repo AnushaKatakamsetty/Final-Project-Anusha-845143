@@ -8,7 +8,7 @@ namespace Emart.BuyerServices.Repositories
 {
     public interface IBuyerRepository
     {
-        List<Items> SearchItems(string name,decimal price);
+        List<Items> SearchItems(string name);
         //void BuyItems(Transaction t);
         void EditProfile(Buyer b);
         Buyer GetProfile(int bid);
@@ -16,6 +16,7 @@ namespace Emart.BuyerServices.Repositories
         List<Category> GetCategories();
         List<SubCategory> GetSubCategories(int categoryid);
         void BuyItem(PurchaseHistory obj);
+        List<Items> ViewAll();
 
 
     }

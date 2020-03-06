@@ -19,12 +19,26 @@ namespace Emart.BuyerServices.Controllers
             _repo = repo;
         }
         [HttpGet]
-        [Route("SearchItems/{name}/{price}")]
-        public IActionResult SearchItems(string name, decimal price)
+        [Route("ViewAll")]
+        public IActionResult ViewAll()
         {
             try
             {
-                return Ok(_repo.SearchItems(name, price));
+                _repo.ViewAll();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("SearchItems/{name}")]
+        public IActionResult SearchItems(string name)
+        {
+            try
+            {
+                return Ok(_repo.SearchItems(name));
             }
             catch (Exception ex)
             {

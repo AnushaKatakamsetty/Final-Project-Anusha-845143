@@ -31,7 +31,8 @@ import { ViewCategoryComponent } from './Admin/view-category/view-category.compo
 
 const routes: Routes = [{path:'home',component:HomeComponent},
 {path:'login',component:LoginComponent},
- {path:'account',component:AccountComponent}, {path:'register-buyer',component:RegisterBuyerComponent},
+ {path:'account',component:AccountComponent}, 
+ {path:'register-buyer',component:RegisterBuyerComponent},
   {path:'register-seller',component:RegisterSellerComponent},
 
   {path:'admin-landing-page',component:AdminLandingPageComponent,children:[

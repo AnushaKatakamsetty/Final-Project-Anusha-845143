@@ -70,10 +70,13 @@ if(role=='seller')
 {
 
 this.service.LoginSeller(username,password).subscribe(res=>{
-console.log(res)
+
 this.token=res;
+console.log(this.token)
 if(this.token.message=="success"){
-  localStorage.setItem('seller',JSON.stringify(this.token.SellerId));
+  console.log(this.token.sellerId);
+  localStorage.setItem('seller',JSON.stringify(this.token.sellerId));
+
   this.route.navigateByUrl("/seller-landing-page")
 }
 else{

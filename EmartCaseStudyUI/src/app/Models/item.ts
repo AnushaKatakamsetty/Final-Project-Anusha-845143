@@ -8,4 +8,5 @@ export class Item {
     Itemdescription:string;
     StockNumber:number;
     Remarks:string;
+    Image:string;
 }

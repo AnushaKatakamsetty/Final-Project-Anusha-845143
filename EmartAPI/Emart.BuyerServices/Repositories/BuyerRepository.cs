@@ -47,9 +47,14 @@ namespace Emart.BuyerServices.Repositories
             return _context.PurchaseHistory.Where(i => i.BuyerId == bid).ToList(); 
         }
 
-        public List<Items> SearchItems(string name, decimal price)
+        public List<Items> SearchItems(string name)
         {
-            return _context.Items.Where(i => i.ItemName == name && i.Price == price).ToList();
+            return _context.Items.Where(i => i.ItemName == name).ToList();
+        }
+
+        public List<Items> ViewAll()
+        {
+            return _context.Items.ToList();
         }
     }
 }
