@@ -26,6 +26,7 @@ namespace Emart.BuyerServices.Repositories
             _context.SaveChanges();
         }
 
+       
         public List<Category> GetCategories()
         {
             return _context.Category.ToList();
@@ -55,6 +56,11 @@ namespace Emart.BuyerServices.Repositories
         public List<Items> ViewAll()
         {
             return _context.Items.ToList();
+        }
+
+        public Items ViewProductDetails(string itemname)
+        {
+            return _context.Items.SingleOrDefault(i=>i.ItemName==itemname);
         }
     }
 }

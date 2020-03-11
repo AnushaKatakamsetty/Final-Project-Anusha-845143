@@ -17,21 +17,22 @@ registerForm:FormGroup;
   sellerregister:Seller;
     constructor(private formbuilder:FormBuilder,private route:Router,private service:AccountService) { 
      
-      this.sellerregister=new Seller();
     }
   
     ngOnInit() {
+      this.sellerregister=new Seller();
       this.registerForm=this.formbuilder.group(
-        {Id:["",Validators.required],
-          UserName:["",Validators.required],
-          Password:["",Validators.required],
-          CompanyName:['',Validators.required],
-          GSTIN:['',Validators.required],
-          BriefAboutCompany:['',Validators.required],
-          PostalAddress:['',Validators.required],
-      Website:['',Validators.required],
-      Email_Id:["",Validators.required],
-      ContactNumber:["",Validators.required]
+        { 
+          
+          sellerUsername:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+        sellerPassword:['',Validators.required],
+       companyName:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+        gstin:['',Validators.required],
+       briefAboutCompany:['',Validators.required],
+       postalAddress:['',Validators.required],
+        website:['',Validators.required],
+       sellerEmailid: ['', Validators.required],
+        sellerContactnumber:['',Validators.required]
       })
     }
   onSubmit()
@@ -40,15 +41,17 @@ registerForm:FormGroup;
     if(this.registerForm.valid)
     {
       this.sellerregister=new Seller();
-      this.sellerregister.SellerId=Number(this.registerForm.value["Id"]);
-      this.sellerregister.SellerUsername=(this.registerForm.value["UserName"]);
-      this.sellerregister.SellerPassword=(this.registerForm.value["Password"]);
-      this.sellerregister.CompanyName=(this.registerForm.value["CompanyName"]);
-      this.sellerregister.Gstin=Number(this.registerForm.value["GSTIN"]);
-      this.sellerregister.BriefAboutCompany=(this.registerForm.value["Email_Id"]);
-      this.sellerregister.PostalAddress=(this.registerForm.value["Email_Id"]);
-      this.sellerregister.SellerEmailid=(this.registerForm.value["Email_Id"]);
-      this.sellerregister.SellerContactnumber=Number(this.registerForm.value["Mobile_Number"]);
+      
+this.sellerregister.sellerId=Math.round(Math.random()*1000);
+ this.sellerregister.sellerUsername=(this.registerForm.value["sellerUsername"]);
+      this.sellerregister.sellerPassword=(this.registerForm.value["sellerPassword"]);
+      this.sellerregister.companyName=(this.registerForm.value["companyName"]);
+      this.sellerregister.gstin=Number(this.registerForm.value["gstin"]);
+      this.sellerregister.briefAboutCompany=(this.registerForm.value["briefAboutCompany"]);
+      this.sellerregister.postalAddress=(this.registerForm.value["postalAddress"]);
+      this.sellerregister.website=(this.registerForm.value["website"]);
+      this.sellerregister.sellerEmailid=(this.registerForm.value["sellerEmailid"]);
+      this.sellerregister.sellerContactnumber=Number(this.registerForm.value["sellerContactnumber"]);
       
       console.log(this.sellerregister);
       this.service.RegisterSeller(this.sellerregister).subscribe(res=>{

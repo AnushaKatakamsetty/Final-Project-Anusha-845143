@@ -19,7 +19,8 @@ submitted=false;
   ngOnInit() {
     this.addsubcatform=this.ASCBuilder.group(
       {
-        SubcategoryName:['',Validators.required],CategoryId:["",Validators.required],
+        SubcategoryName:['',Validators.required],
+        CategoryId:["",Validators.required],
         BriefDetails:['',Validators.required], 
         Gstpercentage:['',Validators.required]   
     })
@@ -31,6 +32,7 @@ submitted=false;
     {
 this.subcat=new SubCategory;
 //this.subcat.SubcategoryId=Number(this.addsubcatform.value['CategoryId']);
+this.subcat.SubcategoryId=Math.round(Math.random()*100);
 this.subcat.SubcategoryName=this.addsubcatform.value['SubcategoryName'];
 this.subcat.CategoryId=Number(this.addsubcatform.value['CategoryId'])
 this.subcat.BriefDetails=this.addsubcatform.value['BriefDetails'];

@@ -27,7 +27,6 @@ namespace Emart.BuyerServices.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-QPCEPU4\\SQLEXPRESS;Initial Catalog=EmartDB;User ID=sa;Password=pass@word1");
             }
         }
@@ -129,6 +128,11 @@ namespace Emart.BuyerServices.Models
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.CategoryId).HasColumnName("category_id");
+
+                entity.Property(e => e.Image)
+                    .HasColumnName("image")
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ItemName)
                     .IsRequired()

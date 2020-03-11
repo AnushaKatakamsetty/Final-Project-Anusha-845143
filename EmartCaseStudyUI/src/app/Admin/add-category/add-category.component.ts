@@ -17,7 +17,7 @@ submitted=false;
 
   ngOnInit() {
     this.addcatform=this.ACBuilder.group(
-      {CategoryId:["",Validators.required],
+      {
         CategoryName:['',Validators.required],
         BriefDetails:['',Validators.required],    
     })
@@ -28,7 +28,7 @@ submitted=false;
     if(this.addcatform.valid)
     {
 this.cat=new Category();
-this.cat.CategoryId=Number(this.addcatform.value['CategoryId']);
+this.cat.CategoryId=Math.round(Math.random()*1000);
 this.cat.CategoryName=this.addcatform.value['CategoryName'];
 this.cat.BriefDetails=this.addcatform.value['BriefDetails'];
 console.log(this.cat);

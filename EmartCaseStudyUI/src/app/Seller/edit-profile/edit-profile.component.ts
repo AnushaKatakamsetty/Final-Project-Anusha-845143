@@ -20,12 +20,12 @@ export class EditProfileComponent implements OnInit {
         SellerUsername:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
           SellerPassword:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
          CompanyName:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-          Gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
-         BriefAboutCompany:['',Validators.required],
-         PostalAddress:['',Validators.required],
-          Website:['',Validators.required],
-         SellerEmailid: ['', Validators.required, Validators.email],
-          SellerContactnumber:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
+          gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
+         briefAboutCompany:['',Validators.required],
+         postalAddress:['',Validators.required],
+          website:['',Validators.required],
+         sellerEmailid: ['', Validators.required, Validators.email],
+          sellerContactnumber:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
            
           
       });
@@ -42,15 +42,15 @@ export class EditProfileComponent implements OnInit {
          if (this. editprofilesForm.valid) {
           this.seller=new Seller();
           //this.seller.SellerId=Math.round(Math.random()*1000);
-      this.seller.SellerUsername=this.editprofilesForm.value["SellerUsername"];
-      this.seller.SellerPassword=this.editprofilesForm.value["SellerPassword"];
-      this.seller.CompanyName=this.editprofilesForm.value["CompanyName"];
-      this.seller.Gstin=this.editprofilesForm.value["Gstin"];
-      this.seller.BriefAboutCompany=this.editprofilesForm.value["BriefAboutCompany"];
-      this.seller.PostalAddress=this.editprofilesForm.value["PostalAddress"];
-      this.seller.Website=this.editprofilesForm.value["Website"];
-      this.seller.SellerEmailid=this.editprofilesForm.value["SellerEmailid"];
-      this.seller.SellerContactnumber=this.editprofilesForm.value["SellerContactname"];
+      this.seller.sellerUsername=this.editprofilesForm.value["sellerUsername"];
+      this.seller.sellerPassword=this.editprofilesForm.value["sellerPassword"];
+      this.seller.companyName=this.editprofilesForm.value["companyName"];
+      this.seller.gstin=this.editprofilesForm.value["gstin"];
+      this.seller.briefAboutCompany=this.editprofilesForm.value["briefAboutCompany"];
+      this.seller.postalAddress=this.editprofilesForm.value["postalAddress"];
+      this.seller.website=this.editprofilesForm.value["website"];
+      this.seller.sellerEmailid=this.editprofilesForm.value["sellerEmailid"];
+      this.seller.sellerContactnumber=this.editprofilesForm.value["sellerContactname"];
       this.service.Editprofile(this.seller).subscribe(res=>{
       console.log('Record Updated')
       },err=>{

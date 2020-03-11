@@ -1,3 +1,10 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function preventBack() { window.history.forward(); }
+            setTimeout("preventBack()", 0);
+            window.onunload = function () { null };
+        </script>
 <style>
     header {
         background: rgb(2, 7, 14);
@@ -5,10 +12,12 @@
     }
     nav{
         background: rgb(187, 238, 5);
+        height: 20px;
         color: rgb(2, 7, 14);
     }
 </style>
-<header>
+</head>
+<body><header>
     <h1>Buyer
   
     </h1>
@@ -20,9 +29,13 @@
     <a [routerLink]="'purchase-history'">View Purchase History</a> &nbsp;  
     <a [routerLink]="'bedit-profile'">Edit Profile</a>   &nbsp;&nbsp; 
     <a [routerLink]="'search'">Search</a>    
-    
-    <input   type="button" (click)="login()"  value="Logout"/>    
+   <input  style="float:right" type="button" (click)="login()"  value="Logout"/>   
+     
   </nav>
-  <router-outlet></router-outlet>
+  
+</body>
+
+  </html>
+<router-outlet></router-outlet>
   
   

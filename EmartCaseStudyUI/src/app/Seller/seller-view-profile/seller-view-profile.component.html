@@ -1,68 +1,75 @@
-<!-- <div class="view">    
-    <div class="container">
-           <div class=" table">
-            <div class="table-info">
-         
-               <tr>
-                   <th>SellerId</th>
-                   <th>Seller Username</th>
-                   <th>CompanyName</th>
-                   <th>Gstin</th>
-                   <th>BriefAboutCompany</th>
-               </tr>
-               <tr >  
-                    <td>{{Sid}}</td>
-                    <td>{{Username}}</td>
-                    <td>{{Companyname}}</td>
-                    <td>{{Gstin}}</td>
-                    <td>{{Briefaboutcompany}}</td>
-                </div>
-        
-            </div>
-         
-    </div>
-</div>    -->
+<div class="bg">
+    <div class="container contact">
+        <div class="row">
+            
+            <div class="col-md-9">
+                <div class="contact-form">
+                    <form [formGroup]="viewprofileform" >
+                         <!-- <div class=form group>
+                            <label class="control-label col-sm-2">ID:</label>
+                            <input type="text" formControlName="Id" class="form-control" readonly />
+                           
+                        </div> -->
+    
+                        <div class=form group>
+                            <label class="control-label col-sm-2">UserName:</label>
+                            <input type="text" formControlName="sellerUsername" class="form-control"/>
+                         </div>
 
+                        <div class = form group>
+                            <label class="control-label col-sm-2">Password:</label>
+                            <input type="password" formControlName="sellerPassword" class="form-control" />
+                        </div>
+                        <div class=form group>
+                            <label class="control-label col-sm-2">Email:</label>
+                            <input type="text" formControlName="sellerEmailid" class="form-control"/>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="well well-sm">
-                <div class="row">
-                    <!-- <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
-                    </div> -->
-                    <div class="col-sm-6 col-md-8">
-                        <h4>
-                            {{SellerUsername}}</h4>
-
-                        <p>
-                            {{SellerEmailid}}
-                            <i ></i>{{CompanyName}}
-                            <br />
-                            <i ></i><a href="{{Website}}"></a>
-                            <br />
-                            <i >{{SellerContactnumber}}</i></p>
-                        <!-- Split button -->
-                        <!-- <div class="btn-group">
-                            <button type="button" class="btn btn-primary">
-                                Social</button>
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span><span class="sr-only">Social</span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
-                                <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Github</a></li>
-                            </ul> 
-                        </div>-->
-                    </div>
+                        </div>
+    
+                        <div class =form group>
+                            <label class="control-label col-sm-2">Company Name:</label>
+                            <input type="text" formControlName="companyName" class="form-control"/>
+                            </div>
+    
+                        <div class =form group>
+                            <label class="control-label col-sm-2">GstIN:</label>
+                            <input type="text" formControlName="gstin" class="form-control"/>
+                            
+                        </div>
+                     
+                        <div class =form group>
+                            <label class="control-label col-sm-2">Brief About Company:</label>
+                            <input type="text" formControlName="briefAboutCompany" class="form-control"/>
+                           
+                        </div>
+                        
+                        <div class=form group>
+                            <label class="control-label col-sm-2">Postal Address:</label>
+                            <input type="text" formControlName="postalAddress" class="form-control"/>
+                       
+                        </div>
+                        
+                        <div class=form group>
+                            <label class="control-label col-sm-2">Website:</label>
+                            <input type="text" formControlName="website"  class="form-control" />
+                        </div>
+                        
+                        <div class=form-group>
+                            <label class="control-label col-sm-2">Mobile:</label>
+                            <input type="text" formControlName="sellerContactnumber" maxlength="10" class="form-control" />
+                          </div>
+                    
+                        <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                              <button type="submit" class="btn btn-default" (click)='Update()'>Update</button>
+                            </div>
+                          </div>
+                       
+                    </form>
                 </div>
             </div>
         </div>
+     </div>
     </div>
-</div>
-
-<router-outlet></router-outlet>
+            
+    

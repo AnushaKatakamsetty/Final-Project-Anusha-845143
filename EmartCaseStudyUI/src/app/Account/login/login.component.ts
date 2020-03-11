@@ -58,7 +58,7 @@ if(role=='buyer')
 console.log(this.token);
     if(this.token.message=='success'){
       //console.log("hey");
-      //localStorage.setItem('buyer',this.token.BuyerId.toString());
+      localStorage.setItem('buyer',JSON.stringify(this.token.BuyerId));
         this.route.navigateByUrl('/buyer-landing-page');
     }
     else{

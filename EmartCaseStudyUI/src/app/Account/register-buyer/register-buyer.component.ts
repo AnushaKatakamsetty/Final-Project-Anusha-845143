@@ -23,12 +23,12 @@ export class RegisterBuyerComponent implements OnInit {
   
     ngOnInit() {
       this.registerForm=this.formbuilder.group(
-        {Id:["",Validators.required],
-          UserName:["",Validators.required],
-      Password:["",Validators.required],
-      Email_Id:["",Validators.required],
-      Mobile_Number:["",Validators.required],
-      CreateDateTime:["",Validators.required]
+        {
+          buyerUsername:["",Validators.required],
+      buyerPassword:["",Validators.required],
+      buyerEmailid:["",Validators.required],
+     buyerMobilenumber:["",Validators.required],
+      createdatetime:["",Validators.required]
       })
     }
   onSubmit()
@@ -37,12 +37,12 @@ export class RegisterBuyerComponent implements OnInit {
     if(this.registerForm.valid)
     {
       this.buyerregister=new Buyer();
-this.buyerregister.BuyerId=Number(this.registerForm.value["Id"]);
-this.buyerregister.BuyerUsername=(this.registerForm.value["UserName"]);
-this.buyerregister.BuyerPassword=(this.registerForm.value["Password"]);
-this.buyerregister.BuyerEmailid=(this.registerForm.value["Email_Id"]);
-this.buyerregister.BuyerMobilenumber=Number(this.registerForm.value["Mobile_Number"]);
-this.buyerregister.Createdatetime=(this.registerForm.value["CreateDateTime"]);
+      this.buyerregister.buyerId=Math.round(Math.random()*1000);
+this.buyerregister.buyerUsername=(this.registerForm.value["buyerUsername"]);
+this.buyerregister.buyerPassword=(this.registerForm.value["buyerPassword"]);
+this.buyerregister.buyerEmailid=(this.registerForm.value["buyerEmailid"]);
+this.buyerregister.buyerMobilenumber=Number(this.registerForm.value["buyerMobilenumber"]);
+this.buyerregister.createdatetime=(this.registerForm.value["createdatetime"]);
 
 console.log(this.buyerregister);
 this.service.RegisterBuyer(this.buyerregister).subscribe(res=>{

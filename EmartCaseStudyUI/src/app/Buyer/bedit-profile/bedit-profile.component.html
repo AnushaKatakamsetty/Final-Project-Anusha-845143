@@ -1,6 +1,6 @@
 <div class="jumborton">
     <div class="container">
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="EditProfileForm" (ngSubmit)="GetProfile()">
         <div class="form-group">
             <label>UserName</label>
             <input type="text" formControlName="UserName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }" />
@@ -8,24 +8,24 @@
             </div>
         </div>
         <br/>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Password</label>
             <input type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
             <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
             </div>
-        </div><br/>
+        </div><br/> -->
         <div class="form-group">
             <label>Email Id</label>
-            <input type="email" formControlName="Email_Id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email_Id.errors }" />
-            <div *ngIf="submitted && f.Email_Id.errors" class="invalid-feedback">
-                <div *ngIf="f.Email_Id.errors.required">Email Id is required</div>
+            <input type="Emailid" formControlName="Emailid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Emailid.errors }" />
+            <div *ngIf="submitted && f.Emailid.errors" class="invalid-feedback">
+                <div *ngIf="f.Emailid.errors.required">Email Id is required</div>
             </div>
         </div><br/>
         <div class="form-group">
             <label>Mobile number</label>
-            <input type="number" formControlName="Mobile_Number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Mobile_Number.errors }" />
-            <div *ngIf="submitted && f.Mobile_Number.errors" class="invalid-feedback">
-                <div *ngIf="f.Mobile_Number.errors.required">Mobile Number is required</div>
+            <input type="number" formControlName="MobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.MobileNumber.errors }" />
+            <div *ngIf="submitted && f.MobileNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.MobileNumber.errors.required">Mobile Number is required</div>
             </div>
         </div>
         <br/>

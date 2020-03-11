@@ -14,7 +14,7 @@ export class AddItemsComponent implements OnInit {
   itemForm:FormGroup;
   submitted=false;
   item:Item;
-  Image:string="assets\images\images.jpg";
+  Image:string;
   constructor(private frombuilder:FormBuilder ,private service:ItemService) { }
 
   ngOnInit() {
@@ -28,7 +28,6 @@ export class AddItemsComponent implements OnInit {
       Itemdescription:['',Validators.required],
       StockNumber:['',Validators.required],
       Remarks:['',Validators.required],
-      Image:['']
     });
   }
     get f() { return this.itemForm.controls; }
@@ -55,16 +54,17 @@ export class AddItemsComponent implements OnInit {
      this.item.Itemdescription=this.itemForm.value["Itemdescription"];
     this.item.StockNumber=Number(this.itemForm.value["StockNumber"]);
     this.item.Remarks=this.itemForm.value["Remarks"]
-    this.item.Image=this.Image;
+    this.item.image=this.Image;
      console.log(this.item);
      this.service.AddItem(this.item).subscribe(res=>{
+       
        console.log('Record Added')
      },erros=>{
        console.log(erros)
      })
     }
-  fileEvent(event){
-    this.item.Image = event.target.files[0].name;
-    console.log(this.Image);
+    fileEvent(event){
+      this.Image = event.target.files[0].name;
   }
+  
 }

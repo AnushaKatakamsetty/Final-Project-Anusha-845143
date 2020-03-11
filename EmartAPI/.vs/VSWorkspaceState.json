@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Emart.AdminServices",
-    "\\Emart.AdminServices\\Controllers",
-    "\\Emart.AdminServices\\Repositories",
-    "\\Emart.SellerServices\\Controllers",
-    "\\Emart.SellerServices\\Repositories"
+    ""
   ],
-  "SelectedNode": "\\Emart.AdminServices\\Controllers\\AdminController.cs",
+  "SelectedNode": "\\EmartAPI.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,2 +1,35 @@
-<p>buyer-view-profile works!</p>
-<router-outlet></router-outlet>
+<div class="bg">
+    <div class="container contact">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="contact-form">
+                    <form [formGroup]="editform" >
+
+                        <div class=form group>
+                            <label class="control-label col-sm-2">UserName:</label>
+                            <input type="text" formControlName="buyerUsername" class="form-control" />
+                            
+                        </div>
+
+                        <div class = form group>
+                            <label class="control-label col-sm-2">Password:</label>
+                            <input type="password" formControlName="buyerPassword" class="form-control"  />
+                        </div>
+                        <div class = form group>
+                            <label class="control-label col-sm-2">Emailid:</label>
+                            <input type="text" formControlName="buyerEmailid" class="form-control"/>
+                                  </div>
+    
+    
+                        <div class = form group>
+                            <label class="control-label col-sm-2">Mobile:</label>
+                            <input type="text" formControlName="buyerMobilenumber" class="form-control"/>
+                        </div>
+                
+               <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                              <button type="submit" class="btn btn-default">update</button>
+                            </div>
+                        </div>
+                        <router-outlet></router-outlet>
+                        
