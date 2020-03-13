@@ -9,11 +9,11 @@ namespace Emart.Test
 {
     public class TestAdminRepository
     {
-        AdminRepository _repo;
+        //AdminRepository _repo;
         [SetUp]
         public void SetUp()
         {
-            _repo = new AdminRepository(new EmartDBContext());
+       //     _repo = new AdminRepository(new EmartDBContext());
         }
         /* [Test]
          public void TestAddCategory()

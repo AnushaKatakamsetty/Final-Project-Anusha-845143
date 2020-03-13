@@ -24,8 +24,6 @@ import { ViewItemsComponent } from './Seller/view-items/view-items.component';
 import { ViewReportsComponent } from './Seller/view-reports/view-reports.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './Account/account/account.component';
-import { BEditProfileComponent } from './Buyer/bedit-profile/bedit-profile.component';
-import { EditProfileComponent } from './Seller/edit-profile/edit-profile.component';
 import { ViewSubCategoryComponent } from './Admin/view-sub-category/view-sub-category.component';
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 
@@ -45,14 +43,14 @@ const routes: Routes = [{path:'home',component:HomeComponent},
     {path:'daily-reports',component:DailyReportsComponent}
   ]},
   {path:'buyer-landing-page',component:BuyerLandingPageComponent,children:[
-    {path:'bedit-profile',component:BEditProfileComponent},
+    
     {path:'buy-product',component:BuyProductComponent},
     {path:'buyer-view-profile',component:BuyerViewProfileComponent},
     {path:'purchase-history',component:PurchaseHistoryComponent},
     {path:'search',component:SearchComponent},
     {path:'view-cart',component:ViewCartComponent}
   ]},{path:'seller-landing-page',component:SellerLandingPageComponent,children:[
-    {path:'edit-profile',component:EditProfileComponent},
+    
     {path:'add-items',component:AddItemsComponent},
     {path:'seller-view-profile',component:SellerViewProfileComponent},
   {path:'view-items',component:ViewItemsComponent},

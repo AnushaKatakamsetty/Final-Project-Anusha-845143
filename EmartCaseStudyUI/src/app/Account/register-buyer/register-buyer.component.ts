@@ -41,7 +41,7 @@ export class RegisterBuyerComponent implements OnInit {
 this.buyerregister.buyerUsername=(this.registerForm.value["buyerUsername"]);
 this.buyerregister.buyerPassword=(this.registerForm.value["buyerPassword"]);
 this.buyerregister.buyerEmailid=(this.registerForm.value["buyerEmailid"]);
-this.buyerregister.buyerMobilenumber=Number(this.registerForm.value["buyerMobilenumber"]);
+this.buyerregister.buyerMobilenumber=this.registerForm.value["buyerMobilenumber"];
 this.buyerregister.createdatetime=(this.registerForm.value["createdatetime"]);
 
 console.log(this.buyerregister);

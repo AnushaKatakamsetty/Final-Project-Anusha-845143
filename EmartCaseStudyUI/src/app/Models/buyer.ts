@@ -3,6 +3,6 @@ export class Buyer {
     public buyerUsername:string;
     public buyerPassword:string;
     public buyerEmailid:string;
-    public buyerMobilenumber:number;
+    public buyerMobilenumber:string;
     public createdatetime:Date;
 }

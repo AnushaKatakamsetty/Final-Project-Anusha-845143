@@ -4,68 +4,68 @@
             <table>
                 <tr>
                     <td><label>Item Id</label></td>
-                    <td><input type="text" formControlName="Id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Id.errors }" />
-                    <div *ngIf="submitted && f.Id.errors" class="invalid-feedback">
-                        <div *ngIf="f.Id.errors.required">Id is required</div>
+                    <td><input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+                    <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                        <div *ngIf="f.id.errors.required">Id is required</div>
                     </div></td>
                 </tr>
                 <tr>
                     <td><label>Seller Id</label></td>
-                    <td><input type="text" formControlName="SellerId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SellerId.errors }" />
-                    <div *ngIf="submitted && f.SellerId.errors" class="invalid-feedback">
-                        <div *ngIf="f.SellerId.errors.required">Id is required</div>
+                    <td><input type="text" formControlName="sellerId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sellerId.errors }" />
+                    <div *ngIf="submitted && f.sellerId.errors" class="invalid-feedback">
+                        <div *ngIf="f.sellerId.errors.required">Id is required</div>
                     </div></td>
                 </tr>
                 <tr>
                     <td><label>Category ID</label></td>
-                    <td><input type="text" formControlName="CategoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CategoryId.errors }" />
-                    <div *ngIf="submitted && f.CategoryId.errors" class="invalid-feedback">
-                        <div *ngIf="f.CategoryId.errors.required">Category id is required</div>
+                    <td><input type="text" formControlName="categoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryId.errors }" />
+                    <div *ngIf="submitted && f.categoryId.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryId.errors.required">Category id is required</div>
                         
                     </div></td>
                 </tr>
                 <tr>
                     <td><label>SubCategory ID</label></td>
-                    <td><input type="text" formControlName="SubcategoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SubcategoryId.errors }" />
-                    <div *ngIf="submitted && f.SubcategoryId.errors" class="invalid-feedback">
-                        <div *ngIf="f.SubcategoryId.errors.required"> subcategory id is required</div>
+                    <td><input type="text" formControlName="subcategoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategoryId.errors }" />
+                    <div *ngIf="submitted && f.subcategoryId.errors" class="invalid-feedback">
+                        <div *ngIf="f.subcategoryId.errors.required"> subcategory id is required</div>
                     
                     </div></td>
                 </tr>
                 <tr>
                     <td><label>Price</label></td>
-                    <td><input type="number" formControlName="Price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Price.errors }" />
-                    <div *ngIf="submitted && f.Price.errors" class="invalid-feedback">
-                        <div *ngIf="f.Price.errors.required">enter Price</div>
+                    <td><input type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                        <div *ngIf="f.price.errors.required">enter Price</div>
                     </div></td>
                 </tr>
                     <tr>
                         <td><label>Item Name</label></td>
-                <td><input type="text" formControlName="ItemName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ItemName.errors }" />
-                <div *ngIf="submitted && f.ItemName.errors" class="invalid-feedback">
-                    <div *ngIf="f.ItemName.errors.required"> enter item name</div>
+                <td><input type="text" formControlName="itemName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.itemName.errors }" />
+                <div *ngIf="submitted && f.itemName.errors" class="invalid-feedback">
+                    <div *ngIf="f.itemName.errors.required"> enter item name</div>
                 </div></td>
             </tr>
             <tr>
                 <td><label>Descrption</label></td>
-                <td><textarea type="text" formControlName="Itemdescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Itemdescription.errors }"></textarea>
-                <div *ngIf="submitted && f.Itemdescription.errors" class="invalid-feedback">
-                    <div *ngIf="f.Itemdescription.errors.required">enter Itemdescription</div>
+                <td><textarea type="text" formControlName="itemdescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.itemdescription.errors }"></textarea>
+                <div *ngIf="submitted && f.itemdescription.errors" class="invalid-feedback">
+                    <div *ngIf="f.itemdescription.errors.required">enter Itemdescription</div>
                 </div></td>
             </tr>
 
             <tr>
                 <td><label>Stock No</label></td>
-                <td><input type="number" formControlName="StockNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StockNumber.errors }" />
-                <div *ngIf="submitted && f.StockNumber.errors" class="invalid-feedback">
-                    <div *ngIf="f.StockNumber.errors.required">please enter stock </div>
+                <td><input type="number" formControlName="stockNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.stockNumber.errors }" />
+                <div *ngIf="submitted && f.stockNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.stockNumber.errors.required">please enter stock </div>
                 </div></td>
             </tr>
             <tr>
                 <td><label>Remarks</label></td>
-                <td><input type="text" formControlName="Remarks" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Remarks.errors }" />
-                <div *ngIf="submitted && f.Remarks.errors" class="invalid-feedback">
-                    <div *ngIf="f.Remarks.errors.required">give remark</div>
+                <td><input type="text" formControlName="remarks" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.remarks.errors }" />
+                <div *ngIf="submitted && f.remarks.errors" class="invalid-feedback">
+                    <div *ngIf="f.remarks.errors.required">give remark</div>
                 </div></td>
             </tr>
             <tr>

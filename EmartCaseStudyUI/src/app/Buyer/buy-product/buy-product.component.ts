@@ -11,16 +11,19 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./buy-product.component.css']
 })
 export class BuyProductComponent implements OnInit {
+  list:Item;
+  it:Item;
+  id1:number;
 // buyform:FormGroup;
 //   list:Item;
 //   ph:PurchaseHistory;
 //   constructor(private service:BuyerService,private formBuilder:FormBuilder,private route:Router) { 
-//     let itemname=localStorage.getItem('itemnm');
-//     this.service.ViewProductDetails(itemname).subscribe(res=>{``
-//       this.list=res;
-//       //localStorage.setItem('item1',)
-//       console.log(this.list);
-//     })
+    // let itemname=localStorage.getItem('itemnm');
+    // this.service.ViewProductDetails(itemname).subscribe(res=>{``
+    //   this.list=res;
+    //   //localStorage.setItem('item1',)
+    //   console.log(this.list);
+    // })
 //   }
 // ngOnInit() {
 //   this.buyform=this.formBuilder.group({
@@ -51,49 +54,58 @@ export class BuyProductComponent implements OnInit {
 //       console.log(this.ph)
 //     })
 //   }
-buyform:FormGroup;
-constructor(private service :BuyerService,private formBuilder:FormBuilder,private route:Router) { }
-item:Items;
+buyproductform:FormGroup;
+constructor(private service :BuyerService,private formBuilder:FormBuilder,private route:Router) { 
+  let itemname=localStorage.getItem('itemnm');
+    this.service.ViewProductDetails(itemname).subscribe(res=>{
+      this.list=res;
+       console.log(this.list);
+       this.it=res;
+      
+    })
+}
+item:Item;
 obj:PurchaseHistory;
 
 ngOnInit() {
-  this.buyform=this.formBuilder.group({
-   transactiontype:[''],
+  this.buyproductform=this.formBuilder.group({
+   transactionType:[''],
    cardnumber:[''],
    cvv:[''],
    ed:[''],
    name:[''],
-   // date:[''],
-   numberofitems:[''],
+   dateTime:[''],
+   noOfItems:[''],
+   itemId:[''],
    remarks:['']
 
   })
-  this.item=JSON.parse(localStorage.getItem('item1'));
-  console.log(this.item);
-  console.log(this.item.id);
+  //this.item=JSON.parse(localStorage.getItem('item'));
+  //console.log(this.item);
+  //console.log(this.item.Id);
 
 }
 Onsubmit()
 {
+ 
  this.obj=new PurchaseHistory();
- this.obj.id='EMTR'+Math.round(Math.random()*1000);
- this.obj.Buyerid=localStorage.getItem('buyerid');
- this.obj.Sellerid=this.item.sellerid;
- this.obj.numberofitems=this.buyform.value["numberofitems"];
- this.obj.Itemid=this.item.id;
- this.obj.Transactiontype=this.buyform.value["transactiontype"];
- // this.obj.Datetime=this.buyform.value["date"];
- this.obj.remarks=this.buyform.value["remarks"];
+ this.obj.purchaseHistoryId='PH'+Math.round(Math.random()*1000);
+ this.obj.buyerId=Number(localStorage.getItem('buyer'));
+ this.obj.sellerId=this.it.sellerId;
+ this.obj.noOfItems=this.buyproductform.value["noOfItems"];
+ this.obj.itemId=this.it.id;
+ this.obj.transactionId='TID'+Math.round(Math.random()*1000);
+ this.obj.transactionType=this.buyproductform.value["transactionType"];
+ this.obj.dateTime=this.buyproductform.value['dateTime']
+ this.obj.remarks=this.buyproductform.value["remarks"];
  console.log(this.obj);
  this.service.BuyItem(this.obj).subscribe(res=>{
    console.log("Purchase was Sucessfull");
    alert('Purchase Done Successfully');
  })
-
 }
 Logout(){
  localStorage.clear();
  this.route.navigateByUrl('/login');
 }
-
 }

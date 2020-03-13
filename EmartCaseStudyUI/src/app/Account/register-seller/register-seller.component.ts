@@ -51,7 +51,7 @@ this.sellerregister.sellerId=Math.round(Math.random()*1000);
       this.sellerregister.postalAddress=(this.registerForm.value["postalAddress"]);
       this.sellerregister.website=(this.registerForm.value["website"]);
       this.sellerregister.sellerEmailid=(this.registerForm.value["sellerEmailid"]);
-      this.sellerregister.sellerContactnumber=Number(this.registerForm.value["sellerContactnumber"]);
+      this.sellerregister.sellerContactnumber=this.registerForm.value["sellerContactnumber"];
       
       console.log(this.sellerregister);
       this.service.RegisterSeller(this.sellerregister).subscribe(res=>{

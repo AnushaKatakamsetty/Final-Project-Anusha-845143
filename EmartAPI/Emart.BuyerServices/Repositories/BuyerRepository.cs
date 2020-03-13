@@ -14,6 +14,13 @@ namespace Emart.BuyerServices.Repositories
             _context = context;
         }
 
+        public void AddToCart(Cart cartobj)
+        {
+            _context.Cart.Add(cartobj);
+            _context.SaveChanges();
+
+        }
+
         public void BuyItem( PurchaseHistory obj)
         {
             _context.PurchaseHistory.Add(obj);
@@ -48,6 +55,14 @@ namespace Emart.BuyerServices.Repositories
             return _context.PurchaseHistory.Where(i => i.BuyerId == bid).ToList(); 
         }
 
+        public void RemoveCartItem(int itemid)
+        {
+            Cart cart = _context.Cart.Find(itemid);
+            _context.Cart.Remove(cart);
+            _context.SaveChanges();
+
+        }
+
         public List<Items> SearchItems(string name)
         {
             return _context.Items.Where(i => i.ItemName == name).ToList();
@@ -58,9 +73,19 @@ namespace Emart.BuyerServices.Repositories
             return _context.Items.ToList();
         }
 
+        public List<Cart> ViewCart()
+        {
+            return _context.Cart.ToList();
+        }
+
         public Items ViewProductDetails(string itemname)
         {
             return _context.Items.SingleOrDefault(i=>i.ItemName==itemname);
+        }
+
+        public List<PurchaseHistory> ViewPurchaseHistory(int bid)
+        {
+            return _context.PurchaseHistory.Where(p => p.BuyerId == bid).ToList();
         }
     }
 }

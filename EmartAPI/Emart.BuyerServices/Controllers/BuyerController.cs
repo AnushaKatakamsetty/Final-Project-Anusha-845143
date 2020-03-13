@@ -46,6 +46,20 @@ namespace Emart.BuyerServices.Controllers
             }
         }
         [HttpGet]
+        [Route("ViewCart")]
+        public IActionResult ViewCart()
+        {
+            try
+            {
+
+                return Ok(_repo.ViewCart());
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpGet]
         [Route("SearchItems/{name}")]
         public IActionResult SearchItems(string name)
         {
@@ -60,7 +74,7 @@ namespace Emart.BuyerServices.Controllers
         }
         //void BuyItems(Transaction t);
         [HttpPut]
-        [Route("EditProfile")]
+        [Route("EditProfile/{buyer}")]
         public IActionResult EditProfile(Buyer buyer)
         {
             try
@@ -116,13 +130,54 @@ namespace Emart.BuyerServices.Controllers
             }
         }
         [HttpPost]
-        [Route("BuyProduct/{item}")]
+        [Route("BuyProduct")]
         public IActionResult BuyItem(PurchaseHistory obj)
         {
             try
             {
                 _repo.BuyItem(obj);
                 return Ok();
+            }
+            catch(Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpPost]
+        [Route("AddToCart")]
+        public IActionResult AddToCart(Cart obj)
+        {
+            try
+            {
+                _repo.AddToCart(obj);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("RemoveCartItem/{itemid}")]
+        public IActionResult RemoveCartItem(int itemid)
+        {
+            try
+            {
+                _repo.RemoveCartItem(itemid);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("ViewPurchaseHistory/{pid}")]
+        public IActionResult  ViewPurchaseHistory(int pid)
+        {
+            try
+            {
+                return Ok(_repo.ViewPurchaseHistory(pid));
             }
             catch(Exception ex)
             {

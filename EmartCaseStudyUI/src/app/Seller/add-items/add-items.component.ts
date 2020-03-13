@@ -19,15 +19,15 @@ export class AddItemsComponent implements OnInit {
 
   ngOnInit() {
     this.itemForm=this.frombuilder.group({
-      Id:['',Validators.required],
-      SellerId:['',Validators.required],
-      CategoryId:['',Validators.required],
-      SubcategoryId:['',Validators.required],
-      Price:['',Validators.required],
-      ItemName:['',Validators.required],
-      Itemdescription:['',Validators.required],
-      StockNumber:['',Validators.required],
-      Remarks:['',Validators.required],
+      id:['',Validators.required],
+      sellerId:['',Validators.required],
+      categoryId:['',Validators.required],
+      subcategoryId:['',Validators.required],
+      price:['',Validators.required],
+      itemName:['',Validators.required],
+      itemdescription:['',Validators.required],
+      stockNumber:['',Validators.required],
+      remarks:['',Validators.required],
     });
   }
     get f() { return this.itemForm.controls; }
@@ -44,16 +44,16 @@ export class AddItemsComponent implements OnInit {
   Add()
   {
      this.item=new Item();
-     this.item.Id=Number(this.itemForm.value["Id"]);
-     this.item.SellerId=Number(this.itemForm.value["SellerId"]);
-     this.item.CategoryId=Number(this.itemForm.value["CategoryId"]);
-     this.item.CategoryId=Number(this.itemForm.value["CategoryId"]);
-     this.item.SubcategoryId=Number(this.itemForm.value["SubcategoryId"]);
-     this.item.ItemName=this.itemForm.value["ItemName"];
-     this.item.Price=Number(this.itemForm.value["Price"]);
-     this.item.Itemdescription=this.itemForm.value["Itemdescription"];
-    this.item.StockNumber=Number(this.itemForm.value["StockNumber"]);
-    this.item.Remarks=this.itemForm.value["Remarks"]
+     this.item.id=Number(this.itemForm.value["id"]);
+     this.item.sellerId=Number(this.itemForm.value["sellerId"]);
+     this.item.categoryId=Number(this.itemForm.value["categoryId"]);
+     this.item.categoryId=Number(this.itemForm.value["categoryId"]);
+     this.item.subcategoryId=Number(this.itemForm.value["subcategoryId"]);
+     this.item.itemName=this.itemForm.value["itemName"];
+     this.item.price=Number(this.itemForm.value["price"]);
+     this.item.itemdescription=this.itemForm.value["itemdescription"];
+    this.item.stockNumber=Number(this.itemForm.value["stockNumber"]);
+    this.item.remarks=this.itemForm.value["remarks"]
     this.item.image=this.Image;
      console.log(this.item);
      this.service.AddItem(this.item).subscribe(res=>{

@@ -26,7 +26,7 @@ namespace Emart.Test
         {
             Seller seller = _repo.GetProfile(1);
             seller.CompanyName = "Amazon";
-            seller.SellerContactnumber = 5817198;
+            seller.SellerContactnumber = "5817198";
             _repo.EditProfile(seller);
             Seller seller1 = _repo.GetProfile(1);
             Assert.AreSame(seller, seller1);

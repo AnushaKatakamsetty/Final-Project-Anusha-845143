@@ -10,64 +10,63 @@ import { CommentStmt } from '@angular/compiler';
   styleUrls: ['./buyer-view-profile.component.css']
 })
 export class BuyerViewProfileComponent implements OnInit {
-    editform:FormGroup;
-    submitted=false;
-    buyer:Buyer;
-    list:Buyer[];
-  idnum:number;
-    constructor(private formbuilder:FormBuilder,private service:BuyerService) { 
-      
-  }
-  
-    ngOnInit() {
-      this.editform=this.formbuilder.group({
-        buyerId:[''],
-        buyerUsername:[''],
-        buyerPassword:[''],
-        buyerEmailid:[''],
-        buyerMobilenumber:[''],
-        
-      });
-      this.viewprofile(); 
-    }
-    viewprofile()
-    {
-        let id=Number(localStorage.getItem('buyer'));
-console.log(id);
-        this.service.GetProfile(id).subscribe(res=>{this.buyer=res;
-        console.log(res);
-        this.editform.setValue({
-          buyerId:this.buyer.buyerId,
-          buyerUsername:this.buyer.buyerUsername,
-          buyerPassword:this.buyer.buyerPassword,
-         buyerEmailid:this.buyer.buyerEmailid,
-          buyerMobilenumber:this.buyer.buyerMobilenumber,
-        })
-      });
-    }
-    get f(){return this.editform.controls;}
-    onSubmit()
-    {
-      this.submitted= true;
-      if(this.editform.valid)
-      {
-        this.buyer.buyerId=this.editform.value["buyerId"]; 
-        this.buyer.buyerUsername=this.editform.value["buyerUsername"];
-        this.buyer.buyerEmailid=this.editform.value["buyerEmailid"];
-        this.buyer.buyerMobilenumber=this.editform.value["buyerMobilenumber"];
-       
-        console.log(this.buyer)
-        this.service.EditProfile(this.buyer.buyerId).subscribe(res=>
-          {
-            console.log('Updated succesfully');
-          },err=>{console.log(err)}
+  editform:FormGroup;
+  submitted=false;
+  Buyer:Buyer;
+  list:Buyer[];
+
+  constructor(private formbuilder:FormBuilder,private service:BuyerService) { 
+    this.editform=this.formbuilder.group({
+   
+    buyerUsername:[''],
+    buyerPassword:[''],
+    buyerEmailid:[''],
+    buyerMobilenumber:[''],
     
-          )
-  
+  });
+}
+
+  ngOnInit() {
+    this.viewprofile(); 
+  }
+  viewprofile()
+  {
+      let id=Number(localStorage.getItem('buyer'));
+      console.log(id);
+      this.service.GetProfile(id).subscribe(res=>{this.Buyer=res;
+      console.log(this.Buyer)
+      this.editform.setValue({
+       
+        buyerUsername:this.Buyer.buyerUsername,
+        buyerPassword:this.Buyer.buyerPassword,
+       buyerEmailid:this.Buyer.buyerEmailid,
+      buyerMobilenumber:this.Buyer.buyerMobilenumber,
+        
+      })
+    });
+  }
+  get f(){return this.editform.controls;}
+  onSubmit()
+  {
+    this.submitted= true;
+    if(this.editform.valid)
+    {
+      
+      this.Buyer.buyerUsername=this.editform.value["buyerUsername"];
+      this.Buyer.buyerPassword=this.editform.value["buyerPassword"];
+      this.Buyer.buyerEmailid=this.editform.value["buyerEmailid"];
+      this.Buyer.buyerMobilenumber=this.editform.value["buyerMobilenumber"];
      
-     }
-    }
+      console.log(this.Buyer)
+      this.service.EditProfile(this.Buyer).subscribe(res=>
+        {
+          console.log('Updated succesfully');
+        },err=>{console.log(err)}
   
-  
+        )
+
+   
+   }
+  }
   }
   

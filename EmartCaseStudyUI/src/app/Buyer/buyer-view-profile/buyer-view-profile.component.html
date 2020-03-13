@@ -1,35 +1,56 @@
-<div class="bg">
-    <div class="container contact">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="contact-form">
-                    <form [formGroup]="editform" >
 
-                        <div class=form group>
-                            <label class="control-label col-sm-2">UserName:</label>
-                            <input type="text" formControlName="buyerUsername" class="form-control" />
-                            
-                        </div>
-
-                        <div class = form group>
-                            <label class="control-label col-sm-2">Password:</label>
-                            <input type="password" formControlName="buyerPassword" class="form-control"  />
-                        </div>
-                        <div class = form group>
-                            <label class="control-label col-sm-2">Emailid:</label>
-                            <input type="text" formControlName="buyerEmailid" class="form-control"/>
-                                  </div>
-    
-    
-                        <div class = form group>
-                            <label class="control-label col-sm-2">Mobile:</label>
-                            <input type="text" formControlName="buyerMobilenumber" class="form-control"/>
-                        </div>
+<div class="bg" >
+    <div class="offset-4 col-8">
+        <div class="container card col-md-4">
+            <div class="card-body">
+             <form [formGroup]="editform" (ngSubmit)="onSubmit()">
                 
-               <div class="form-group">        
-                            <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-default">update</button>
-                            </div>
-                        </div>
-                        <router-outlet></router-outlet>
+                     
+                     <div class="form-group col-14">
+                         <label style="font-size:20px">User Name</label>
+                         <input type="text" formControlName="buyerUsername" class="form-control" />
+                         <!-- <div *ngIf="submit && f.username.errors" class="invalid-feedback">
+                             <div *ngIf="f.username.errors.required">Name is required</div>
+                             <div *ngIf="f.username.errors.pattern">Enter only alphabets</div>
+                         </div> -->
+                     </div>
+                     <div class="form-group col-14">
+                        <label style="font-size:20px">Password</label>
+                        <input type="text" formControlName="buyerPassword" class="form-control" />
+                        <!-- <div *ngIf="submit && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Name is required</div>
+                            <div *ngIf="f.username.errors.pattern">Enter only alphabets</div>
+                        </div> -->
+                    </div>
+                     
+                 <div class="form-group col-14">
+                     <label style="font-size:20px">Mobile</label>
+                    
+                     <input type="text" formControlName="buyerMobilenumber" class="form-control" />
+                     <!-- <div *ngIf="submit && f.contactno.errors" class="invalid-feedback">
+                         <div *ngIf="f.contactno.errors.required">Mobile no is required</div>
+                         <div *ngIf="f.contactno.errors.pattern">Mobile no Must be Valid</div>
+                     </div> -->
+                 </div>
+                 <div class="form-group col-14">
+                     <label style="font-size:20px">Email</label>
+                     <input type="text" formControlName="buyerEmailid" class="form-control" />
+                     <!-- <div *ngIf="submit && f.emailid.errors" class="invalid-feedback">
+                         <div *ngIf="f.emailid.errors.required">Email is required</div>
+                         <div *ngIf="f.emailid.errors.email">Email must be a valid email address</div>
+                     </div> -->
+                 </div>
+                     <div class="text-center">
+                       <button class="btn btn-primary mr-1">Update</button>
+                      
+                     
+                     </div>
+             </form>
+         </div>
+        
+    </div>
+     
+ </div>
+ </div>
+ <router-outlet></router-outlet>
                         

@@ -8,5 +8,5 @@ export class Seller {
         postalAddress:string;
         website:string;
         sellerEmailid:string;
-        sellerContactnumber:number;
+        sellerContactnumber:string;
 }

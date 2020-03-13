@@ -18,7 +18,7 @@ a{
       width: 300px; 
      }
      .bg{
-        background-image: url("E:\Final-Project-Anusha-845143\EmartCaseStudyUI\src\assets\images\imgfav.jpg");
+        background-image: url("src\assets\images\imgfav.jpg");
         background-size: 100% 100%;
         background-repeat: no-repeat;
         height: 800px;

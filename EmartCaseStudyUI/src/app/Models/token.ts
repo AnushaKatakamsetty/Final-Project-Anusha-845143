@@ -1,7 +1,7 @@
 export class Token {
 token:string;
 message:string;
-BuyerId:number;
+buyerid:number;
 sellerId:number;
 UserName:string;
 }

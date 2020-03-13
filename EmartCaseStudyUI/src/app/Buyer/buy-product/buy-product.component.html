@@ -1,32 +1,65 @@
-<div class="container">
-  <div class="row">
-    <!-- <div class="col-md-4" *ngFor="let item of list"> -->
-    
-        <div class="card" style="width:250px" >
-           <img class="card-img-top" src="/assets/images/{{list.image}}" alt="Card image cap"> 
-            <h5 class="card-title">{{list.itemName}}</h5>
-            <div class="card-body">
-             <!-- ItemId:{{item.id}}<br/>
-              CategoryId:{{item.categoryId}}<br/>
-              SubCategoryId:{{item.subcategoryid}}<br/> -->
-              <!-- SellerId: {{item.sid}}<br/> -->
-              ItemName:{{list.itemName}}
-              Price: {{list.price}}<br/>
-              Description:{{list.itemdescription}}<br/>
-              Stock:{{list.stockNumber}}<br/>
-              Remarks:{{list.remarks}} 
+<main class="bg" > 
+  <div class="container offset-3" >
+      <div class="img" >
+          <div class="col-sm-12 col-md-7 col-lg-4 mx-auto">
+              <div class="card card-signin my-5 bg-success"  style="float:right" height='900px' width='400px'>
+              <h5 class="card-header text-center" style="color: #0c0b09;">Payment Gateway</h5>
+                  <div class="card-body" height='900px' width='400px'>
+                      <form [formGroup]="buyproductform" (ngSubmit)="Onsubmit()">  
+                        <div class="form-group">
+                          <label style="color: #141413;">ItemId</label>
+                          <input type="text" formControlName="itemId" value="{{it.itemName}}" class="form-control" autofocus/>
+                        </div>  
+                            <div class="form-group">
+                              <label style="color: #141413;">Number Of Items</label>
+                              <input type="number" formControlName="noOfItems" class="form-control" autofocus/>
+                            </div>
+                            <!-- <div class="form-group">
+                              <label style="color: #fc9e23;">Date</label>
+                              <input type="date" formControlName="date" class="form-control"/>
+                            </div> -->
+                          <div class="form-group">
+                              <label style="color:#0c0c0c;">Choose PayMent Mode</label>
+                              <select formControlName="transactionType">
+                                  <option value="credit">Credit Card</option>
+                                  <option value="debit">Debit Card</option>
+                                  <!-- <option value="cod">Cash On Delivery</option> -->
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label style="color: #141413;">Date</label>
+                              <input type="date" formControlName="dateTime" class="form-control" autofocus/>
+                            </div>
+                            <div class="form-group">
+                              <label style="color: #080808;">Card Number</label>
+                              <input type="text" formControlName="cardnumber" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                              <label style="color: #0a0a0a;">CVV</label>
+                              <input type="number" formControlName="cvv" class="form-control" style="width: 30%;"/>
+                            </div>
+                            <div class="form-group">
+                              <label style="color: #0a0a0a;">ExpiryDate</label>
+                              <input type="date" formControlName="ed" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                              <label style="color: #080602;">Card Holders Name</label>
+                              <input type="text" formControlName="name" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                              <label style="color: #0a0a0a;">Remarks</label>
+                              <textarea type="text" formControlName="remarks" class="form-control"></textarea>
+                            </div>
+                          <hr class="my-4 bg-success"/>
+                          <div class="form-group">
+                              <div class="text-center">
+                                  <button type="submit" class="btn btn-primary mr-1">Purchase</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
           </div>
-       
-          <div class="card-footer">
-            <div class="text-center">
-              
-              <button class="btn btn-outline-info" (click)='BuyProduct()'>Proceed To Pay</button>
-          </div>
-          
-          </div>
-          
-        </div>
-        <br>
-      <!-- </div> -->
-    </div>
+      </div>
   </div>
+</main>

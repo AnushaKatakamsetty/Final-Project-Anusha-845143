@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   seller:Seller;
   role: any;
   token:Token;
+  k:number;
 
   constructor(private formBuilder: FormBuilder,private route:Router,private service:AccountService) { }
 
@@ -53,12 +54,13 @@ this.token=new Token();
 if(role=='buyer')
 {
   this.service.LoginBuyer(username,password).subscribe(res=>{
-    console.log(res);
+
     this.token=res;
-console.log(this.token);
-    if(this.token.message=='success'){
-      //console.log("hey");
-      localStorage.setItem('buyer',JSON.stringify(this.token.BuyerId));
+    console.log(this.token)
+    if(this.token.message=="success"){
+      console.log(this.token.buyerid);
+      localStorage.setItem('buyer',JSON.stringify(this.token.buyerid));
+    
         this.route.navigateByUrl('/buyer-landing-page');
     }
     else{

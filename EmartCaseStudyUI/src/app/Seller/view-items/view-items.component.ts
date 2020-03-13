@@ -41,15 +41,15 @@ export class ViewItemsComponent implements OnInit {
   Update()
   {
     this.item=new Item();
-    this.item.Id=this.itemForm.value["id"];
-    this.item.CategoryId=this.itemForm.value["categoryId"];
-    this.item.SubcategoryId=this.itemForm.value["subcategoryId"];
-    this.item.Price=Number(this.itemForm.value["price"]);
-    this.item.ItemName=this.itemForm.value["itemName"];
-    this.item.Itemdescription=this.itemForm.value["itemdescription"];
-    this.item.StockNumber=Number(this.itemForm.value["stockNumber"]);
-    this.item.Remarks=this.itemForm.value["remarks"];
-    this.item.SellerId=this.itemForm.value["sellerId"];
+    this.item.id=this.itemForm.value["id"];
+    this.item.categoryId=this.itemForm.value["categoryId"];
+    this.item.subcategoryId=this.itemForm.value["subcategoryId"];
+    this.item.price=Number(this.itemForm.value["price"]);
+    this.item.itemName=this.itemForm.value["itemName"];
+    this.item.itemdescription=this.itemForm.value["itemdescription"];
+    this.item.stockNumber=Number(this.itemForm.value["stockNumber"]);
+    this.item.remarks=this.itemForm.value["remarks"];
+    this.item.sellerId=this.itemForm.value["sellerId"];
     console.log(this.item);
     this.service.UpdateItem(this.item).subscribe(res=>
       {

@@ -1,4 +1,10 @@
 img{
-    height: auto;
-    width: auto;
+    height: 9000px;
+    width: 700px;
+}
+.bg{
+    background-image: url("E:\Final-Project-Anusha-845143\EmartCaseStudyUI\src\assets\images\dw1.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 1000px;
 }

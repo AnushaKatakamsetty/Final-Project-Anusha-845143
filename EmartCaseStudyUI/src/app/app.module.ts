@@ -27,8 +27,6 @@ import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './Account/account/account.component';
-import { EditProfileComponent } from './Seller/edit-profile/edit-profile.component';
-import { BEditProfileComponent } from './Buyer/bedit-profile/bedit-profile.component';
 import {HttpClientModule} from  '@angular/common/http';
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 import { ViewSubCategoryComponent } from './Admin/view-sub-category/view-sub-category.component';
@@ -58,10 +56,10 @@ import { ViewSubCategoryComponent } from './Admin/view-sub-category/view-sub-cat
     BuyProductComponent,
     HomeComponent,
     AccountComponent,
-    EditProfileComponent,
-    BEditProfileComponent,
+  
     ViewCategoryComponent,
     ViewSubCategoryComponent
+    
   ],
   imports: [
     BrowserModule,

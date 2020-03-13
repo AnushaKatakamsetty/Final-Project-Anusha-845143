@@ -12,7 +12,7 @@ font-size: larger;
     height:500px;
 }
 .bgi{
-    background-image: url("E:\Final-Project-Anusha-845143\EmartCaseStudyUI\src\assets\images\img1.jpg");
+    background-image: url("src\assets\images\img1.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 800px;

@@ -7,8 +7,9 @@
     <a [routerLink]="'add-items'">Add Items</a>&nbsp;
     <a [routerLink]="'view-items'">View Items</a>&nbsp;
     <a [routerLink]="'seller-view-profile'">View Profile</a> &nbsp; 
-    <a [routerLink]="'view-reports'">View Reports</a>&nbsp;
-    <a [routerLink]="'edit-profile'">Edit Profile</a>           
+    <!-- <a [routerLink]="'view-reports'">View Reports</a>&nbsp;
+    <a [routerLink]="'edit-profile'">Edit Profile</a>    -->
+    <input  style="float:right" type="button" (click)="Logout()"  value="Logout"/>        
         
   </nav>
   <router-outlet></router-outlet>

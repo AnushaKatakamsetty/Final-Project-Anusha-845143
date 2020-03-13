@@ -18,8 +18,11 @@ namespace Emart.BuyerServices.Repositories
         void BuyItem(PurchaseHistory obj);
         List<Items> ViewAll();
         Items ViewProductDetails(string itemname);
-   
+        void AddToCart(Cart cartobj);
 
+        List<Cart> ViewCart();
+        void RemoveCartItem(int itemid);
+        List<PurchaseHistory> ViewPurchaseHistory(int bid);
 
     }
 }

@@ -8,11 +8,20 @@ import { Router } from '@angular/router';
 })
 export class BuyerLandingPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+    if(localStorage.getItem('Buyer'))
+    {
+
+    }
+    else{
+      this.router.navigateByUrl('/home/login')
+    }
+   }
 
   ngOnInit() {  }
 login()
 {
-  this.router.navigateByUrl('/login');
+  localStorage.clear();
+ this.router.navigateByUrl('/login');
 }
 }
