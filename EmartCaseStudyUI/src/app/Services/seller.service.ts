@@ -26,7 +26,7 @@ export class SellerService {
   }
   public Editprofile(seller:Seller):Observable<any>
   {
-    return this.http.put<any>(this.url+'Editprofile/',seller);
+    return this.http.put<any>(this.url+'Editprofile',seller);
   }
 //   public Getcategory():Observable<Category[]>
 //   {

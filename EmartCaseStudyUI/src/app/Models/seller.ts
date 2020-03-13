@@ -9,4 +9,5 @@ export class Seller {
         website:string;
         sellerEmailid:string;
         sellerContactnumber:string;
+  briefaboutcompany: any;
 }

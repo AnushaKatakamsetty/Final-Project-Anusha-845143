@@ -45,7 +45,7 @@ url:string="http://localhost:54446/Buyer/"
    }
    public EditProfile(buyer:Buyer):Observable<Buyer>
    {
-     return this.http.put<Buyer>(this.url+'EditProfile/'+buyer,Requestheaders);
+     return this.http.put<Buyer>(this.url+'EditProfile',buyer,Requestheaders);
    }
    public AddToCart(cart:Cart):Observable<Cart>
    {

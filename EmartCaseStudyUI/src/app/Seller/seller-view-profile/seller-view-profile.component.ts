@@ -67,9 +67,9 @@ website:['']
     this.seller.sellerPassword=this.viewprofileform.value['sellerPassword'],
     this.seller.companyName=this.viewprofileform.value['companyName'],
     this.seller.sellerEmailid=this.viewprofileform.value['sellerEmailid'],
-    this.seller.gstin=this.viewprofileform.value['gstin'],
+    this.seller.gstin=Number(this.viewprofileform.value['gstin']),
     this.seller.sellerContactnumber=this.viewprofileform.value['sellerContactnumber'],
-    this.seller.briefAboutCompany=this.viewprofileform.value['breifAboutCompany'],
+    this.seller.briefaboutcompany=this.viewprofileform.value['breifAboutCompany'],
     this.seller.postalAddress=this.viewprofileform.value['postalAddress'],
     this.seller.website=this.viewprofileform.value['website']
     console.log(this.seller);

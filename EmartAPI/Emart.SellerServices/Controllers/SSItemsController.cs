@@ -88,6 +88,34 @@ namespace Emart.SellerServices.Controllers
                 return NotFound(ex.InnerException.Message);
             }
         }
-    
+        [HttpGet]
+        [Route("GetSub/{cid}")]
+        public IActionResult GetSub(int cid)
+        {
+            try
+            {
+
+                return Ok(_rep.GetSub(cid));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetAllCategories")]
+        public IActionResult GetAllCategories(int sellerid)
+        {
+            try
+            {
+
+                return Ok(_rep.GetAllCategories());
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.InnerException.Message);
+            }
+        }
+
     }
 }

@@ -12,6 +12,7 @@
               <th>Stockno</th>
               <th>Remarks</th>
               <th>SellerId</th>
+              <th>Image</th>
               <th>Edit</th>
               <th>Delete</th>
           </tr>
@@ -24,6 +25,7 @@
              <td>{{item.itemdescription}}</td>
              <td>{{item.stockNumber}}</td>
              <td>{{item.remarks}}</td>
+             <td><img src='assets/images/{{item.image}}' style="height:150px; width:150px;"><br></td>
              <td>{{item.sellerId}}</td>
              <td><button class="btn btn-primary mr-1" type="button" (click)="Update()">Edit</button></td>
              <td><button class="btn btn-primary mr-1" type="button" (click)="Delete(item.id)">Delete</button></td>

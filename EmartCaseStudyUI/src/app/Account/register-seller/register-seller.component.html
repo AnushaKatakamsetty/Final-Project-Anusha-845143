@@ -68,7 +68,7 @@
         </div><br/>
         <div class="form-group">
             <label>Contact number</label>
-            <input type="number" formControlName="sellerContactnumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sellerContactnumber.errors }" />
+            <input type="text" formControlName="sellerContactnumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sellerContactnumber.errors }" />
             <div *ngIf="submitted && f.sellerContactnumber.errors" class="invalid-feedback">
                 <div *ngIf="f.sellerContactnumber.errors.required">Mobile Number is required</div>
             </div>

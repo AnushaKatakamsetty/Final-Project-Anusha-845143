@@ -26,7 +26,7 @@ registerForm:FormGroup;
           
           sellerUsername:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
         sellerPassword:['',Validators.required],
-       companyName:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+       companyName:['',Validators.required],
         gstin:['',Validators.required],
        briefAboutCompany:['',Validators.required],
        postalAddress:['',Validators.required],

@@ -29,7 +29,9 @@
         </div>
       </div>
     </div> --> 
+ 
     <div class="form-inline my-2 my-lg-0 offset-5">
+      
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"[(ngModel)]="itemName">
           <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="Search()">Search</button>
     </div>
@@ -39,9 +41,9 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let item of list">
         
-            <div class="card" style="width:250px" >
-               <img class="card-img-top" src="/assets/images/{{item.image}}" alt="Card image cap"> 
-                <h5 class="card-title">{{item.itemName}}</h5>
+            <div class="card" style="width:260px ;height:500px"  >
+               <img class="card-img-top" src="/assets/images/{{item.image}}" style='width:260px;height:200px'alt="Card image cap"> 
+                <h5  class="card-title">{{item.itemName}}</h5>
                 <div class="card-body">
                  <!-- ItemId:{{item.id}}<br/>
                   CategoryId:{{item.categoryId}}<br/>

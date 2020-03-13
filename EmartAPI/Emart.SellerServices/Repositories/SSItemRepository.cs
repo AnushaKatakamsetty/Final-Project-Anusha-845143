@@ -27,10 +27,20 @@ namespace Emart.SellerServices.Repositories
             _contx.SaveChanges();
         }
 
+        public List<Category> GetAllCategories()
+        {
+            return _contx.Category.ToList();
+        }
+
         public Items GetItems(int itemid)
         {
 
             return _contx.Items.Find(itemid);
+        }
+
+        public List<SubCategory> GetSub(int cid)
+        {
+            return _contx.SubCategory.Where(i => i.CategoryId == cid).ToList();
         }
 
         public void UpdateItem(Items obj)

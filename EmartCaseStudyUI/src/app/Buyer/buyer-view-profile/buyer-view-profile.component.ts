@@ -22,6 +22,8 @@ export class BuyerViewProfileComponent implements OnInit {
     buyerPassword:[''],
     buyerEmailid:[''],
     buyerMobilenumber:[''],
+    createdatetime:['']
+
     
   });
 }
@@ -41,6 +43,7 @@ export class BuyerViewProfileComponent implements OnInit {
         buyerPassword:this.Buyer.buyerPassword,
        buyerEmailid:this.Buyer.buyerEmailid,
       buyerMobilenumber:this.Buyer.buyerMobilenumber,
+      createdatetime:this.Buyer.createdatetime
         
       })
     });
@@ -55,8 +58,10 @@ export class BuyerViewProfileComponent implements OnInit {
       this.Buyer.buyerUsername=this.editform.value["buyerUsername"];
       this.Buyer.buyerPassword=this.editform.value["buyerPassword"];
       this.Buyer.buyerEmailid=this.editform.value["buyerEmailid"];
+
       this.Buyer.buyerMobilenumber=this.editform.value["buyerMobilenumber"];
-     
+      this.Buyer.createdatetime=this.editform.value['createdatetime'];
+     //console.log(this.Buyer.createdatetime)
       console.log(this.Buyer)
       this.service.EditProfile(this.Buyer).subscribe(res=>
         {

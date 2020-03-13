@@ -57,7 +57,7 @@ namespace Emart.BuyerServices.Repositories
 
         public void RemoveCartItem(int itemid)
         {
-            Cart cart = _context.Cart.Find(itemid);
+            Cart cart = _context.Cart.SingleOrDefault(i=>i.Itemid==itemid);
             _context.Cart.Remove(cart);
             _context.SaveChanges();
 

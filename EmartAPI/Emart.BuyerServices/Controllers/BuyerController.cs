@@ -74,7 +74,7 @@ namespace Emart.BuyerServices.Controllers
         }
         //void BuyItems(Transaction t);
         [HttpPut]
-        [Route("EditProfile/{buyer}")]
+        [Route("EditProfile")]
         public IActionResult EditProfile(Buyer buyer)
         {
             try

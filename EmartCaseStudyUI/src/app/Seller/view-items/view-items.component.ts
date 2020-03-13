@@ -57,6 +57,7 @@ export class ViewItemsComponent implements OnInit {
       })
   }
   Delete(id:number){
+    console.log(id);
     this.service.DeleteItem(id).subscribe(res=>{
       console.log('Record deleted');
     },
